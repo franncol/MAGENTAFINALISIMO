@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>El motor de predicción | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Orbitron:wght@400;600;700;900&family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="recorrido.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <main class="diseno">
+      <img class="halo" src="assets/recorrido/halo.svg" alt="">
+
+      <h1 class="titulo" style="left:392px;line-height:1.5;letter-spacing:-1.472px">El motor de predicción</h1>
+      <p class="bajada" style="top:236px;left:182px;width:1077px">El sistema combina el texto, el MIDI y el audio para calcular y decidir nota por nota qué es lo que musicalmente "debería" seguir.</p>
+
+      <div class="motor">
+        <!-- Entradas -->
+        <img style="left:120px;top:36px;width:74px;height:74px" src="assets/recorrido/motor-texto-a.svg" alt="">
+        <img style="left:92px;top:147px;width:74px;height:74px" src="assets/recorrido/motor-midi-a.svg" alt="">
+        <img style="left:92px;top:251px;width:74px;height:74px" src="assets/recorrido/motor-audio-a.svg" alt="">
+        <img style="left:8px;top:69px;width:64px;height:64px" src="assets/recorrido/motor-texto-b.svg" alt="">
+        <img style="left:16px;top:167px;width:64px;height:64px" src="assets/recorrido/motor-midi-b.svg" alt="">
+        <img style="left:16px;top:249px;width:64px;height:64px" src="assets/recorrido/motor-audio-b.svg" alt="">
+
+        <i class="motor__barra" style="left:250px"></i>
+        <img style="left:424px;top:0;width:357px;height:361px;object-fit:cover" src="assets/recorrido/logo.png" alt="Motor de predicción">
+        <i class="motor__barra" style="left:805px"></i>
+
+        <!-- Próxima nota -->
+        <div class="motor__card"></div>
+        <p class="motor__t" style="left:1017px;top:39.5px">Próxima nota - Ejemplo</p>
+        <p class="motor__t" style="left:1017px;top:81.5px">Do</p>
+        <p class="motor__t" style="left:1017px;top:124.5px">Mi</p>
+        <p class="motor__t" style="left:1017px;top:167.5px">Sol</p>
+        <p class="motor__t" style="left:1017px;top:210.5px">Si</p>
+        <div class="motor__pista" style="left:1070px;top:89.5px"><i style="width:105px"></i></div>
+        <div class="motor__pista" style="left:1067px;top:132.5px"><i style="width:53px"></i></div>
+        <div class="motor__pista" style="left:1075px;top:175.5px"><i style="width:35px"></i></div>
+        <div class="motor__pista" style="left:1063px;top:218.5px"><i style="width:18px"></i></div>
+        <p class="motor__t" style="left:1266px;top:81.5px">62%</p>
+        <p class="motor__t" style="left:1263px;top:124.5px">21%</p>
+        <p class="motor__t" style="left:1266px;top:167.5px">12%</p>
+        <p class="motor__t" style="left:1266px;top:210.5px">5%</p>
+        <p class="motor__t" style="left:1017px;top:262.5px;width:324px;white-space:normal">Elige la más probable o se anima a otra.</p>
+      </div>
+
+      <a class="pildora-paso" href="grafico.html" style="--p-bg:rgba(212,157,222,.12);--p-c:#d49dde;--p-g:rgba(212,157,222,.45)">
+        <span class="pildora-paso__icono"><img src="assets/recorrido/icono-perilla.svg" alt=""></span>
+        <span class="pildora-paso__texto">GIRÁ LA PERILLA: CAMBIÁ DE CANAL Y SEGUÍ</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Bienvenido querídisimo aprendiz | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&family=Russo+One&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="inicio.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body data-sig="equipo-jacks.html">
+  <div class="stage" id="stage">
+    <div class="bi-fondo"></div>
+    <div class="bi-vignette"><img src="assets/inicio/vignette.png" alt=""></div>
+    <div class="bi-glich"><img src="assets/inicio/glich-rosa.png" alt=""><i></i></div>
+    <main class="diseno">
+      <h1 class="bi-titulo" data-escribe="42">BIENVENIDO QUERIDÍSIMO APRENDIZ</h1>
+      <p class="bi-texto" data-escribe="22">A lo largo de esta infografía aprenderás cómo la inteligencia artificial aprende, transforma y genera música</p>
+      <div class="bi-mascota"><img src="assets/inicio/mascota-saludo.png" alt="Mascota de Google Magenta saludando"></div>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="escritura.js"></script>
+  <script src="siguiente.js"></script>
+  <script>
+    // Esta pantalla pasa sola a la siguiente después de unos segundos (o con un clic).
+    setTimeout(() => { irA('equipo-jacks.html'); }, 8000);
+  </script>
+  <script src="consola.js"></script>
+</body>
+</html>

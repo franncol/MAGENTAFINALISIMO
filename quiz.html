@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Pregunta | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Roboto+Condensed:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="bg" src="assets/quiz/fondo.png" alt="">
+    <main class="diseno">
+      <div class="q-bloque">
+        <header class="q-cabecera">
+          <div class="q-etiqueta" id="etiqueta"></div>
+          <h1 class="q-titulo" id="titulo"></h1>
+        </header>
+
+        <div class="q-opciones" id="opciones"></div>
+
+        <section class="q-dato">
+          <div class="q-dato__icono">!</div>
+          <div class="q-dato__cuerpo">
+            <p class="q-dato__etq" id="dato-etq" hidden></p>
+            <p class="q-dato__txt" id="dato-txt"></p>
+          </div>
+        </section>
+
+        <footer class="q-pie">
+          <a class="pildora-paso" id="cta" href="#" style="--p-bg:rgba(255,61,191,.16);--p-c:#ff3dbf;--p-g:rgba(255,61,191,.45)">
+            <span class="pildora-paso__icono"><img src="assets/quiz/icono-pad.svg" alt=""></span>
+            <span class="pildora-paso__texto" id="cta-txt"></span>
+          </a>
+          <div class="q-progreso" id="progreso"></div>
+        </footer>
+      </div>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="quiz.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

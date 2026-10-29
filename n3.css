@@ -1,0 +1,109 @@
+/* Núcleo 3: "Magenta llevado a la práctica" y aviso del quiz */
+
+.mp-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+
+.mp-titulo {
+  position: absolute;
+  left: 227px;
+  top: 32px;
+  width: 986px;
+  height: 140px;
+  overflow: hidden;
+  text-align: center;
+  font: italic 700 64px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .64px;
+  text-transform: uppercase;
+  color: #4f7bff;
+}
+.mp-sub {
+  position: absolute;
+  left: 97px;
+  top: 203px;
+  font: italic 700 40px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  color: #fd3db5;
+  white-space: nowrap;
+}
+.mp-bajada {
+  position: absolute;
+  left: 97px;
+  top: 265px;
+  width: 1245px;
+  font: italic 700 24px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .24px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.mp-bajada--grande { font-size: 32px; letter-spacing: .32px; }
+
+.mp-card {
+  position: absolute;
+  top: 377px;
+  width: 367px;
+  height: 500px;
+  box-sizing: border-box;
+  border: 2px solid var(--c);
+  background: var(--f);
+  box-shadow: 0 0 20px var(--c);
+  cursor: pointer;
+  transition: opacity .3s, filter .3s;
+}
+.mp-card--cian { --c: #26c3d1; --f: rgba(38, 195, 209, .12); }
+.mp-card--violeta { --c: #964af9; --f: rgba(150, 74, 249, .12); }
+.mp-card--oscura { --c: #5b2554; --f: rgba(215, 26, 211, .12); }
+.mp-card__titulo {
+  position: absolute;
+  top: 30px;
+  transform: translateX(-50%);
+  font: italic 700 40px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.mp-card__texto {
+  position: absolute;
+  left: 29px;
+  top: 408px;
+  width: 305px;
+  text-align: center;
+  font: 700 16px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .16px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.mp-card__texto.it { font-style: italic; }
+.mp-card img { position: absolute; display: block; max-width: none; pointer-events: none; }
+
+.mp-flecha { position: absolute; top: 609px; width: 38px; height: 18px; }
+.mp-flecha img { position: absolute; inset: -8.33% -3.95%; width: 107.9%; height: 116.66%; max-width: none; }
+
+/* Aviso del quiz */
+.qa-linea {
+  position: absolute;
+  font: 600 64px/normal 'Orbitron', sans-serif;
+  letter-spacing: 1.28px;
+  color: #ff3dbf;
+}
+.qa-linea--blanca { font-weight: 700; color: #fff; text-align: center; transform: translateX(-50%); }
+.qa-mascota { position: absolute; left: 67px; top: 349px; width: 439px; height: 471px; overflow: hidden; pointer-events: none; }
+.qa-mascota img { position: absolute; left: -33.88%; top: -50.84%; width: 155.53%; height: 205.01%; max-width: none; }
+
+/* Cada tarjeta muestra el ícono y, al revelarla, el texto */
+.mp-back { display: none; position: absolute; }
+.mp-card.revelada .mp-front { display: none; }
+.mp-card.revelada .mp-back { display: block; }
+.mp-back__titulo {
+  text-align: center;
+  font: italic 700 40px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.mp-back__texto {
+  text-align: left;
+  font: 700 28px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: -.28px;
+  text-transform: uppercase;
+  color: #fff;
+}

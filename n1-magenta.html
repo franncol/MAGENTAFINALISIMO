@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>MAgenTA | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&family=Russo+One&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="n1.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="n1-bg" src="assets/n1/fondo.png" alt="">
+    <div class="n1-velo"></div>
+    <main class="diseno">
+      <img class="n1-bg-diseno" src="assets/n1/fondo.png" alt="">
+      <div class="n1-velo n1-velo--diseno"></div>
+      <h1 class="mg-titulo" data-escribe="40">MAgenTA = Music And art Generation</h1>
+      <div class="mg-panel"><img src="assets/n1/panel.png" alt=""></div>
+      <div class="mg-texto">
+        <p data-escribe="20">Nace como un <span class="rosa">Proyecto de investigación de Google</span>, de código abierto, que explora cómo el aprendizaje automático puede ser una herramienta más dentro del proceso creativo.</p>
+        <p data-escribe="20">Lo fundó Douglas Eck en Google Brain: se presentó en Moogfest y se lanzó el 1 de junio de 2016.</p>
+        <p data-escribe="20">Hoy forma parte de Google DeepMind.</p>
+      </div>
+      <div class="mg-ondas"><img src="assets/n1/ondas-rosa.png" alt=""></div>
+      <a class="n1-boton" href="modelo.html" style="left:1291px;top:863px"><img src="assets/n1/icono-perilla.svg" alt=""></a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="escritura.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Gracias por crear con la IA | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Roboto+Condensed:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="bg" src="assets/quiz/fondo.png" alt="">
+    <main class="diseno">
+      <h1 class="c2-titulo">¡GRACIAS POR CREAR<br>CON LA IA!</h1>
+      <p class="c2-bajada">La decisión final siempre es tuya.</p>
+
+      <div class="c2-nodos">
+        <div class="c2-nodo">
+          <div class="c2-nodo__circulo">1</div>
+          <p class="c2-nodo__nombre">CÓMO FUNCIONA</p>
+          <p class="c2-nodo__cable">CABLE 1</p>
+        </div>
+        <div class="c2-union"><i></i></div>
+        <div class="c2-nodo">
+          <div class="c2-nodo__circulo">2</div>
+          <p class="c2-nodo__nombre">CÓMO INTERACTÚA</p>
+          <p class="c2-nodo__cable">CABLE 2</p>
+        </div>
+        <div class="c2-union"><i></i></div>
+        <div class="c2-nodo c2-nodo--hecho">
+          <div class="c2-nodo__circulo">✓</div>
+          <p class="c2-nodo__nombre">QUIZ</p>
+          <p class="c2-nodo__cable">CABLE 3</p>
+        </div>
+      </div>
+
+      <!-- Por ahora desconectar el cable vuelve a la pantalla inicial -->
+      <a class="c2-pildora" href="index.html">
+        <span class="c2-pildora__icono"><img src="assets/icono-pildora.svg" alt=""></span>
+        <span class="c2-pildora__texto">DESCONECTÁ EL CABLE PARA FINALIZAR</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

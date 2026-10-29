@@ -1,0 +1,127 @@
+:root {
+  --fondo: #002037;
+  --texto: #fff;
+  --texto-tenue: #9d96c8;
+  --magenta: #e040fb;
+  --rosa: #ff3dbf;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  background: var(--fondo);
+  overflow: hidden;
+}
+
+/* Lienzo fijo de 1920x1080; stage.js lo escala al viewport. */
+.stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  background: var(--fondo);
+  overflow: hidden;
+  transform-origin: top left;
+}
+
+/* Fondo glitch a pantalla completa */
+.glich {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Contenido diseñado a 1440x1024 (frames de Figma), ampliado para llenar la altura y centrado. */
+.diseno {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1440px;
+  height: 1024px;
+  transform: translateX(-50%) scale(calc(1080 / 1024));
+  transform-origin: top center;
+}
+
+/* GIF animado (recortado como en Figma) */
+.gif { position: absolute; overflow: hidden; pointer-events: none; }
+.gif img { position: absolute; display: block; max-width: none; }
+
+/* Botón de las pantallas de tutorial (conectá el cable / girá la perilla / bajá el slider): mismo tamaño y lugar en todas */
+.pildora-tut {
+  position: absolute;
+  left: 280px;
+  top: 905px;
+  width: 880px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 12px 39px 12px 12px;
+  background: var(--tut-bg);
+  border: 3px solid var(--tut-c);
+  border-radius: 999px;
+  box-shadow: 0 0 36px var(--tut-g);
+  text-decoration: none;
+  cursor: pointer;
+}
+.pildora-tut__icono {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: var(--tut-i, var(--tut-c));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pildora-tut__icono > img { width: 39px; height: 39px; }
+.pildora-tut__texto {
+  font: 700 24px/1.2 'Orbitron', sans-serif;
+  letter-spacing: 1.44px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Botón de cada paso dentro de los núcleos (girá la perilla / deslizá el volumen / pads): mismo tamaño y lugar en todos */
+.pildora-paso {
+  position: absolute;
+  left: 118px;
+  top: 880px;
+  width: 700px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 26px 8px 8px;
+  background: var(--p-bg);
+  border: 2px solid var(--p-c);
+  border-radius: 999px;
+  box-shadow: 0 0 24px var(--p-g);
+  text-decoration: none;
+  cursor: pointer;
+}
+.pildora-paso__icono {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--p-c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pildora-paso__icono img { width: 26px; height: 26px; }
+.pildora-paso__texto {
+  font: 700 18px/normal 'Orbitron', sans-serif;
+  letter-spacing: .6px;
+  color: #fff;
+  white-space: nowrap;
+}

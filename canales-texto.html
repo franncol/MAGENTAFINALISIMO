@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Los tres canales de entrada: Texto | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&family=Space+Grotesk:wght@400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="recorrido.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <main class="diseno">
+      <img class="halo" src="assets/recorrido/halo.svg" alt="">
+
+      <h1 class="titulo titulo--centro">Los tres canales de entrada</h1>
+
+      <nav class="pestanas">
+        <a class="pestana" href="canales-midi.html">MIDI</a>
+        <a class="pestana" href="canales-audio.html">AUDIO</a>
+        <a class="pestana pestana--activa" href="canales-texto.html">TEXTO</a>
+      </nav>
+
+      <section class="canal canal--texto">
+        <img class="canal__icono" src="assets/recorrido/icono-texto.svg" alt="">
+        <p class="canal__nombre">TEXTO</p>
+        <p class="canal__desc">Palabras que<br>guían el estilo.</p>
+        <div class="canal__grafico"><span class="canal__palabra">"melancólica"</span></div>
+      </section>
+
+      <!-- Prompt: posiciones en % del frame de 1440x1024 -->
+      <div class="abs" style="inset:37.11% 4.79% 24.51% 41.32%">
+        <img class="abs" style="left:-0.16%;top:-0.32%;width:100.32%;height:100.64%;max-width:none" src="assets/recorrido/panel.svg" alt="">
+      </div>
+
+      <p class="prompt-txt" style="inset:49.51% 47.29% 46.19% 48.82%">Una</p>
+      <p class="prompt-txt" style="inset:49.51% 37.21% 46.19% 53.83%">canción</p>
+      <div class="prompt-chip" style="inset:49.61% 21.99% 46.29% 63.52%"><img style="left:-0.36%;top:-1.79%;width:100.72%;height:103.58%;max-width:none" src="assets/recorrido/chip-melancolica.svg" alt=""></div>
+      <p class="prompt-txt prompt-txt--clave" style="inset:49.51% 22.03% 46.19% 63.87%">melancólica</p>
+      <p class="prompt-etq" style="inset:46.68% 27.22% 51.95% 68.76%">EMOCIÓN</p>
+      <div class="prompt-tick" style="inset:48.34% 29.23% 50.88% 70.77%"><img src="assets/recorrido/tick.svg" alt=""></div>
+      <p class="prompt-txt" style="inset:49.51% 21.01% 46.19% 77.67%">,</p>
+      <div class="prompt-chip" style="inset:49.61% 13.21% 46.29% 79.83%"><img style="left:-0.75%;top:-1.79%;width:101.5%;height:103.58%;max-width:none" src="assets/recorrido/chip-lenta.svg" alt=""></div>
+      <p class="prompt-txt prompt-txt--clave" style="inset:49.51% 13.44% 46.19% 80.17%">lenta</p>
+      <p class="prompt-etq" style="inset:46.68% 15.09% 51.95% 81.78%">TEMPO</p>
+      <div class="prompt-tick" style="inset:48.34% 16.69% 50.88% 83.31%"><img src="assets/recorrido/tick.svg" alt=""></div>
+      <p class="prompt-txt" style="inset:49.51% 12.24% 46.19% 86.44%">,</p>
+
+      <p class="prompt-txt" style="inset:58.69% 47.29% 37.01% 48.82%">con</p>
+      <div class="prompt-chip" style="inset:58.79% 39.55% 37.11% 53.49%"><img style="left:-0.75%;top:-1.79%;width:101.5%;height:103.58%;max-width:none" src="assets/recorrido/chip-piano.svg" alt=""></div>
+      <p class="prompt-txt prompt-txt--clave" style="inset:58.69% 39.78% 37.01% 53.83%">piano</p>
+      <p class="prompt-etq" style="inset:55.86% 39.76% 42.77% 53.78%">INSTRUMENTO</p>
+      <div class="prompt-tick" style="inset:57.52% 43.03% 41.7% 56.97%"><img src="assets/recorrido/tick.svg" alt=""></div>
+      <p class="prompt-txt" style="inset:58.69% 37.32% 37.01% 61.36%">y</p>
+      <p class="prompt-txt" style="inset:58.69% 28.42% 37.01% 63.87%">sonido</p>
+      <p class="prompt-txt" style="inset:58.69% 24.78% 37.01% 72.65%">de</p>
+      <div class="prompt-chip" style="inset:58.79% 15.72% 37.11% 76.06%"><img style="left:-0.63%;top:-1.79%;width:101.26%;height:103.58%;max-width:none" src="assets/recorrido/chip-lluvia.svg" alt=""></div>
+      <p class="prompt-txt prompt-txt--clave" style="inset:58.69% 15.88% 37.01% 76.41%">lluvia</p>
+      <p class="prompt-etq" style="inset:55.86% 17.53% 42.77% 77.88%">AMBIENTE</p>
+      <div class="prompt-tick" style="inset:57.52% 19.83% 41.7% 80.17%"><img src="assets/recorrido/tick.svg" alt=""></div>
+      <p class="prompt-txt" style="inset:58.69% 14.74% 37.01% 83.94%">.</p>
+      <div class="abs" style="inset:59.08% 13.14% 37.4% 86.58%"><img class="fill" src="assets/recorrido/cursor.svg" alt=""></div>
+
+      <a class="pildora-paso" href="motor.html" style="--p-bg:rgba(212,157,222,.12);--p-c:#d49dde;--p-g:rgba(212,157,222,.45)">
+        <span class="pildora-paso__icono"><img src="assets/recorrido/icono-perilla.svg" alt=""></span>
+        <span class="pildora-paso__texto">GIRÁ LA PERILLA: CAMBIÁ DE CANAL Y SEGUÍ</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

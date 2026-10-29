@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="288" height="288" viewBox="0 0 288 288" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="sound-on-solid 2">
+<path id="Vector" d="M168 24V264H132V252H120V240H108V228H96V216H84V204H72V192H12V96H72V84H84V72H96V60H108V48H120V36H132V24H168Z" fill="url(#paint0_linear_0_29)"/>
+<path id="Vector_2" d="M209.455 180V168H197.455V156H209.455V132H197.455V120H209.455V108H221.455V120H233.455V168H221.455V180H209.455Z" fill="url(#paint1_linear_0_29)"/>
+<path id="Vector_3" d="M276 120V168H264V192H252V204H240V216H228V204H216V192H228V180H240V168H252V120H240V108H228V96H216V84H228V72H240V84H252V96H264V120H276Z" fill="url(#paint2_linear_0_29)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_29" x1="90" y1="24" x2="90" y2="264" gradientUnits="userSpaceOnUse">
+<stop stop-color="#9D1CFF"/>
+<stop offset="1" stop-color="#DA89FF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_29" x1="215.455" y1="108" x2="215.455" y2="180" gradientUnits="userSpaceOnUse">
+<stop stop-color="#9D1CFF"/>
+<stop offset="1" stop-color="#DA89FF"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_29" x1="246" y1="72" x2="246" y2="216" gradientUnits="userSpaceOnUse">
+<stop stop-color="#9D1CFF"/>
+<stop offset="1" stop-color="#DA89FF"/>
+</linearGradient>
+</defs>
+</svg>

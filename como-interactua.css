@@ -1,0 +1,78 @@
+.titulo {
+  position: absolute;
+  left: 639px;
+  top: 130px;
+  width: 774px;
+  text-align: center;
+  font: italic 700 80px/normal 'Chakra Petch', sans-serif;
+  letter-spacing: -3.2px;
+  color: var(--texto);
+  white-space: nowrap;
+}
+.titulo__lila { color: #b89bff; }
+
+.texto {
+  position: absolute;
+  left: 534px;
+  top: 286px;
+  width: 863px;
+  text-align: right;
+  font: 400 30px/normal 'Orbitron', sans-serif;
+  color: var(--texto);
+}
+
+.mascota {
+  position: absolute;
+  left: 66px;
+  top: 407px;
+  width: 482px;
+  height: 485px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.mascota img {
+  position: absolute;
+  left: -9.34%;
+  top: -27.65%;
+  width: 109.35%;
+  height: 153.79%;
+  max-width: none;
+}
+
+/* Único elemento con glow de la pantalla */
+.pildora {
+  position: absolute;
+  left: 993.5px;
+  top: 831px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 39px 12px 12px;
+  background: rgba(255, 61, 191, .12);
+  border: 3px solid #b89bff;
+  border-radius: 999px;
+  box-shadow: 0 0 36px #b89bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pildora__icono {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: #b89bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pildora__icono { position: relative; overflow: hidden; }
+.pildora__fader { position: absolute; left: 18px; top: 0.5px; width: 30px; height: 65px; transform: scaleX(-1); }
+.pildora__fader img { position: absolute; display: block; max-width: none; left: -276.1%; top: -234.11%; width: 679.25%; height: 559.77%; }
+
+.pildora__texto {
+  font: 700 24px/1.2 'Orbitron', sans-serif;
+  letter-spacing: 1.44px;
+  color: var(--texto);
+  white-space: nowrap;
+}

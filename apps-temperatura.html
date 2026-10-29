@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Aplicaciones de Magenta: Temperatura | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="interactua.css">
+  <link rel="stylesheet" href="nucleo2.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="bg" src="assets/interactua/fondo.png" alt="">
+    <main class="diseno">
+      <h1 class="a-titulo">Aplicaciones de Magenta</h1>
+      <nav class="n2-nav" style="top:304px;height:560px">
+        <i class="n2-nav__linea"></i>
+        <a class="n2-nav__item" href="apps-continue.html" style="top:0px;height:60px">CONTINUE</a>
+        <i class="n2-nav__cx" style="top:29px"></i><i class="n2-nav__punto" style="top:21px"></i>
+        <a class="n2-nav__item" href="apps-generate.html" style="top:125px;height:60px">GENERATE</a>
+        <i class="n2-nav__cx" style="top:154px"></i><i class="n2-nav__punto" style="top:146px"></i>
+        <a class="n2-nav__item" href="apps-interpolacion.html" style="top:250px;height:60px">INTERPOLACIÓN</a>
+        <i class="n2-nav__cx" style="top:279px"></i><i class="n2-nav__punto" style="top:271px"></i>
+        <a class="n2-nav__item on" href="apps-temperatura.html" style="top:375px;height:60px">TEMPERATURA</a>
+        <i class="n2-nav__cx on" style="top:404px"></i><i class="n2-nav__punto on" style="top:396px"></i>
+        <a class="n2-nav__item n2-nav__item--sig" href="genie-info.html" style="top:500px;height:60px">▶▶</a>
+        <i class="n2-nav__cx" style="top:529px"></i><i class="n2-nav__punto" style="top:521px"></i>
+      </nav>
+      <div class="n2-caja"></div>
+      <div class="n2-panel" style="left:920px;width:374px"></div>
+      <h2 class="n2-nombre" style="left:660px">TEMPERATURA</h2>
+      <p class="n2-desc" style="top:444px;width:380px">Define qué tan predecible o arriesgada es la generación.</p>
+      <p class="n2-temp-t" style="left:1204px;top:427px">más predecible</p>
+      <p class="n2-temp-t" style="left:1193px;top:576px">más variada</p>
+      <div class="abs" style="left:1125px;top:365px;width:0;height:237px;display:flex;align-items:center;justify-content:center"><div style="position:relative;flex:none;width:237px;height:0;transform:rotate(-90deg)"><img src="assets/interactua/linea-temp.svg" alt="" style="position:absolute;max-width:none;left:-1.27%;top:-4px;width:102.54%;height:calc(100% + 7px)"></div></div>
+      <div class="abs" style="left:940px;top:405px;width:164px;height:39px"><i class="n2-temp-b" style="top:0%;right:88.41%;bottom:0%;left:0%"></i><i class="n2-temp-b" style="top:0%;right:70.73%;bottom:0%;left:17.68%"></i><i class="n2-temp-b" style="top:0%;right:53.05%;bottom:0%;left:35.37%"></i><i class="n2-temp-b" style="top:0%;right:35.37%;bottom:0%;left:53.05%"></i><i class="n2-temp-b" style="top:0%;right:17.68%;bottom:0%;left:70.73%"></i><i class="n2-temp-b" style="top:0%;right:0%;bottom:0%;left:88.41%"></i></div>
+      <div class="abs" style="left:933px;top:549px;width:178px;height:44px"><i class="n2-temp-c" style="top:42%;right:93.4%;bottom:0%;left:0%"></i><i class="n2-temp-c" style="top:58%;right:81.73%;bottom:0%;left:11.68%"></i><i class="n2-temp-c" style="top:58%;right:46.7%;bottom:0%;left:46.7%"></i><i class="n2-temp-c" style="top:58%;right:0%;bottom:0%;left:93.4%"></i><i class="n2-temp-c" style="top:42%;right:35.03%;bottom:0%;left:58.38%"></i><i class="n2-temp-c" style="top:42%;right:11.68%;bottom:0%;left:81.73%"></i><i class="n2-temp-c" style="top:42%;right:70.05%;bottom:0%;left:23.35%"></i><i class="n2-temp-c" style="top:18%;right:58.38%;bottom:0%;left:35.03%"></i><i class="n2-temp-c" style="top:0%;right:23.35%;bottom:0%;left:70.05%"></i></div>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

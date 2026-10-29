@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Poné a prueba tus conocimientos | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&family=Russo+One&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="n3.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="mp-bg" src="assets/n3/fondo-aviso.png" alt="">
+    <main class="diseno">
+      <p class="qa-linea" style="left:546px;top:169px;width:963px">AHORA QUE YA DOMINAS GOOGLE MAGENTA</p>
+      <p class="qa-linea qa-linea--blanca" style="left:935px;top:367px;width:858px">ESTAS A UN PASO DE PRODUCIR..</p>
+      <p class="qa-linea" style="left:540px;top:562px;width:858px">PONÉ A PRUEBA TUS CONOCIMIENTOS</p>
+      <div class="qa-mascota"><img src="assets/n3/mascota-brazos.png" alt="Mascota de Google Magenta"></div>
+      <a class="pildora-paso" href="quiz.html" style="left:617px;top:771px;width:auto;--p-bg:rgba(255,61,191,.16);--p-c:#ff3dbf;--p-g:rgba(255,61,191,.45)">
+        <span class="pildora-paso__icono"><img src="assets/n3/icono-pad.svg" alt=""></span>
+        <span class="pildora-paso__texto">EMPEZAR · TOCÁ CUALQUIER PAD</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script>
+    // Cada intento del quiz arranca de cero; cualquier pad (teclas 1 a 4) lo empieza.
+    sessionStorage.removeItem('quizParcial');
+    document.addEventListener('keydown', (e) => { if (/^[1-4]$/.test(e.key)) irA('quiz.html'); });
+  </script>
+  <script src="consola.js"></script>
+</body>
+</html>

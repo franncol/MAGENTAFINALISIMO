@@ -1,0 +1,170 @@
+/* Núcleo 1: "MAgenTA = Music And art Generation" y gráfico "¿Cuánta música escuchó cada modelo?" */
+
+.n1-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.n1-velo { position: absolute; inset: 0; background: rgba(18, 18, 18, .2); pointer-events: none; }
+
+.n1-boton {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  border-radius: 50%;
+  background: #d49dde;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.n1-boton img { width: 41px; height: 41px; }
+
+/* MAgenTA */
+.mg-titulo {
+  position: absolute;
+  left: 193px;
+  top: 88px;
+  width: 1054px;
+  text-align: center;
+  font: 700 64px/70px 'Chakra Petch', sans-serif;
+  letter-spacing: -2.56px;
+  color: #d49dde;
+  text-shadow: -2px 0 rgba(255, 61, 191, .55), 2px 0 rgba(80, 230, 255, .55), 0 4px 25px rgba(0, 0, 0, .65);
+  white-space: nowrap;
+}
+.mg-panel { position: absolute; left: 269px; top: 151px; width: 901px; height: 811px; overflow: hidden; mix-blend-mode: overlay; pointer-events: none; }
+.mg-panel img { position: absolute; left: -5.58%; top: -19.29%; width: 111.03%; height: 144.23%; max-width: none; }
+.mg-texto {
+  position: absolute;
+  left: 382px;
+  top: 315px;
+  width: 704px;
+  font: 600 32px/1.5 'Chakra Petch', sans-serif;
+  letter-spacing: -.736px;
+  color: #fff;
+}
+.mg-texto p + p { margin-top: 0; }
+.mg-texto .rosa { color: #ff3dbf; }
+.mg-ondas { position: absolute; left: 624px; top: 720px; width: 220px; height: 172px; overflow: hidden; mix-blend-mode: color-burn; pointer-events: none; }
+.mg-ondas img { position: absolute; left: 0; top: -.02%; width: 167.16%; height: 165.43%; max-width: none; }
+
+/* Gráfico de horas escuchadas */
+.gr-fondo { position: absolute; inset: 0; background: var(--fondo); }
+.gr-titulo {
+  position: absolute;
+  left: 141px;
+  top: 97px;
+  font: 700 36px/normal 'Chakra Petch', sans-serif;
+  letter-spacing: -.72px;
+  color: #f4f0f5;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.gr-sub { position: absolute; left: 142.5px; top: 155.8px; width: 934px; height: 53.3px; pointer-events: none; }
+
+.gr-grafico { position: absolute; left: 133px; top: 262px; width: 1182px; height: 396px; }
+.gr-pista { position: absolute; left: 0; top: 5px; font: 400 13px/normal 'Chakra Petch', sans-serif; color: #fff; }
+.gr-eje { position: absolute; left: 236px; top: 0; width: 946px; height: 28px; border-bottom: 1px solid #6a00ff; }
+.gr-eje span { position: absolute; top: 2px; height: 25px; font: 400 12px/normal 'JetBrains Mono', monospace; color: #fff; white-space: nowrap; }
+.gr-eje span::after { content: ''; position: absolute; top: 19px; width: 1px; height: 6px; background: #6a00ff; left: var(--t, 0); }
+
+.gr-filas { position: absolute; left: 0; top: 36px; width: 1182px; height: 360px; }
+.gr-fila {
+  position: absolute;
+  left: 0;
+  width: 1182px;
+  height: 84px;
+  border-radius: 12px;
+  cursor: pointer;
+  --c: #ff3d9a;
+  --ct: rgba(255, 61, 154, .07);
+  --cs: rgba(255, 61, 154, .35);
+  transition: background .2s;
+}
+.gr-fila--audio { --c: #4cd3e8; --ct: rgba(76, 211, 232, .07); --cs: rgba(38, 195, 209, .35); }
+.gr-fila:nth-child(1) { top: 0; }
+.gr-fila:nth-child(2) { top: 92px; }
+.gr-fila:nth-child(3) { top: 184px; }
+.gr-fila:nth-child(4) { top: 276px; }
+.gr-fila.on { background: var(--cs); }
+
+.gr-etq { position: absolute; left: 0; top: 21.5px; width: 220px; height: 41px; }
+.gr-punto { position: absolute; left: 12px; top: 15.5px; width: 10px; height: 10px; border-radius: 50%; background: var(--c); opacity: .6; }
+.gr-fila.on .gr-punto { opacity: 1; box-shadow: 0 0 10px var(--c); }
+.gr-nombre { position: absolute; left: 34px; top: 0; font: 700 17px/normal 'Chakra Petch', sans-serif; color: #d9d3dc; white-space: nowrap; }
+.gr-fila.on .gr-nombre { color: #f4f0f5; }
+.gr-anio { position: absolute; left: 34px; top: 25px; font: 400 12px/normal 'Chakra Petch', sans-serif; color: #a8a1ae; white-space: nowrap; }
+
+.gr-carril { position: absolute; left: 236px; top: 6px; width: 946px; height: 72px; border-radius: 10px; overflow: hidden; background: rgba(0, 0, 0, .2); }
+.gr-fila.on .gr-carril { background: transparent; }
+.gr-onda {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  height: 56px;
+  border-left: 2px solid var(--c);
+  border-radius: 6px;
+  background: var(--ct);
+}
+.gr-fila.on .gr-onda { background: rgba(255, 255, 255, .08); }
+.gr-onda img { position: absolute; display: block; max-width: none; top: 0; height: 100%; }
+.gr-valor {
+  position: absolute;
+  top: 26.5px;
+  font: 700 15px/normal 'Space Grotesk', sans-serif;
+  color: #a8a1ae;
+  white-space: nowrap;
+}
+.gr-fila.on .gr-valor {
+  top: 21px;
+  height: 29px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: var(--c);
+  font-size: 18px;
+  line-height: 29px;
+  color: #f4f0f5;
+}
+.gr-cursor { display: none; position: absolute; left: 150px; top: 4px; width: 2px; height: 64px; background: #f4f0f5; }
+.gr-fila.on .gr-cursor { display: block; }
+
+/* Tarjeta inferior */
+.gr-tarjeta {
+  position: absolute;
+  left: 143.5px;
+  top: 750px;
+  width: 1153px;
+  height: 183px;
+  border: 1px solid #2a2733;
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity .25s;
+  --c: #26c3d1;
+  --cl: #4cd3e8;
+}
+.gr-tarjeta.visible { opacity: 1; }
+.gr-tarjeta.midi { --c: #ff3d9a; --cl: #ff3dbf; }
+.gr-tarjeta > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: color-dodge; opacity: .35; border-radius: 18px; pointer-events: none; }
+.gr-t-izq { position: absolute; left: 28px; top: 22px; width: 776px; height: 137px; }
+.gr-t-anio { position: absolute; left: 0; top: 4.5px; font: 400 14px/normal 'Russo One', sans-serif; color: var(--c); }
+.gr-t-tag {
+  position: absolute;
+  left: 46px;
+  top: 0;
+  height: 27px;
+  padding: 0 10px;
+  border: 1px solid rgba(76, 211, 232, .4);
+  border-radius: 999px;
+  font: 400 13px/25px 'Russo One', sans-serif;
+  color: var(--cl);
+  white-space: nowrap;
+}
+.gr-tarjeta.midi .gr-t-tag { border-color: rgba(255, 61, 191, .45); }
+.gr-t-nombre { position: absolute; left: 0; top: 35px; font: 700 30px/normal 'Chakra Petch', sans-serif; letter-spacing: -.6px; color: #f4f0f5; white-space: nowrap; }
+.gr-t-desc { position: absolute; left: 0; top: 83px; width: 776px; font: 400 17px/25.5px 'Chakra Petch', sans-serif; color: #fff; }
+.gr-t-der { position: absolute; left: 832px; top: 22px; width: 320px; height: 137px; border-left: 1px solid #2a2733; }
+.gr-t-etq { position: absolute; left: 28px; top: 9.8px; font: 700 13px/normal 'Chakra Petch', sans-serif; letter-spacing: 1.3px; color: var(--c); white-space: nowrap; }
+.gr-t-grande { position: absolute; left: 28px; top: 26.8px; font: 600 48px/50.4px 'Orbitron', sans-serif; letter-spacing: -.96px; color: var(--cl); white-space: nowrap; }
+.gr-t-chico { position: absolute; left: 28px; top: 89.2px; width: 291px; font: 400 15px/normal 'Chakra Petch', sans-serif; color: #fff; }
+
+/* Dentro de .diseno (que tiene transform) para que los modos de mezcla vean el fondo */
+.n1-bg-diseno { position: absolute; left: -138px; top: -69px; width: 1673px; height: 1190px; pointer-events: none; }
+.n1-velo--diseno { inset: auto; left: -138px; top: -69px; width: 1673px; height: 1190px; }

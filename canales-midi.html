@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Los tres canales de entrada: MIDI | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="recorrido.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <main class="diseno">
+      <img class="halo" src="assets/recorrido/halo.svg" alt="">
+
+      <h1 class="titulo titulo--centro">Los tres canales de entrada</h1>
+
+      <nav class="pestanas">
+        <a class="pestana pestana--activa" href="canales-midi.html">MIDI</a>
+        <a class="pestana" href="canales-audio.html">AUDIO</a>
+        <a class="pestana" href="canales-texto.html">TEXTO</a>
+      </nav>
+
+      <section class="canal canal--midi">
+        <img class="canal__icono" src="assets/recorrido/icono-midi.svg" alt="">
+        <p class="canal__nombre">MIDI</p>
+        <p class="canal__desc">Notas, ritmo y fuerza.<br>No el sonido.</p>
+        <div class="canal__grafico">
+          <i style="left:0;top:46px;width:60px"></i>
+          <i style="left:70px;top:24px;width:40px"></i>
+          <i style="left:120px;top:36px;width:70px"></i>
+          <i style="left:200px;top:6px;width:50px"></i>
+        </div>
+      </section>
+
+      <div class="abs" style="inset:41.6% 10.07% 29.1% 42.01%">
+        <img class="abs" style="left:-0.11%;top:-0.25%;width:100.22%;height:100.5%" src="assets/recorrido/grilla.svg" alt="">
+      </div>
+      <div class="abs" style="inset:41.6% 10.21% 29.59% 42.01%">
+        <img class="fill" src="assets/recorrido/notas.svg" alt="">
+      </div>
+
+      <a class="pildora-paso" href="canales-audio.html" style="--p-bg:rgba(212,157,222,.12);--p-c:#d49dde;--p-g:rgba(212,157,222,.45)">
+        <span class="pildora-paso__icono"><img src="assets/recorrido/icono-perilla.svg" alt=""></span>
+        <span class="pildora-paso__texto">GIRÁ LA PERILLA: CAMBIÁ DE CANAL Y SEGUÍ</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

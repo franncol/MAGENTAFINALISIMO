@@ -1,0 +1,70 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  background: #002037;
+  overflow: hidden;
+}
+
+.inicio {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #002037;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.inicio__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 1s ease, transform 6s ease-out;
+}
+
+.inicio.is-ready .inicio__fondo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------- Glitch animado de la portada ---------- */
+.g-capas { position: absolute; inset: 0; overflow: hidden; animation: g-respira 7s ease-in-out infinite alternate; }
+@keyframes g-respira { from { scale: 1; } to { scale: 1.025; } }
+
+.g-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.g-base { animation: g-parpadeo 5s steps(1, end) infinite; }
+@keyframes g-parpadeo {
+  0%, 100% { filter: brightness(1); }
+  8% { filter: brightness(1.18); }
+  9% { filter: brightness(.9); }
+  10% { filter: brightness(1); }
+  53% { filter: brightness(1.12); }
+  54% { filter: brightness(1); }
+}
+
+/* Canales de color separados: en reposo no se ven; durante una ráfaga se desfasan a los costados. */
+.g-canal { mix-blend-mode: screen; opacity: 0; }
+.g-rojo { filter: url(#solo-rojo); }
+.g-cian { filter: url(#solo-cian); }
+
+/* Franjas horizontales que se corren de lado (las crea script.js) */
+.g-franjas { position: absolute; inset: 0; }
+.g-franjas .g-img { opacity: 0; }
+
+/* Líneas de pantalla y un barrido de luz que baja todo el tiempo */
+.g-lineas { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 1px, transparent 1px 3px); mix-blend-mode: multiply; }
+.g-barrido {
+  position: absolute; left: 0; right: 0; top: 0; height: 18%;
+  background: linear-gradient(180deg, transparent, rgba(255, 90, 200, .10) 50%, transparent);
+  animation: g-baja 4.5s linear infinite;
+}
+@keyframes g-baja { from { translate: 0 -120%; } to { translate: 0 620%; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .g-capas, .g-base, .g-barrido { animation: none; }
+}

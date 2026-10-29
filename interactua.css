@@ -1,0 +1,444 @@
+/* Recorrido "¿Cómo interactúa?" (frames de 1440x1024, escalados por base.css) */
+
+:root {
+  --azul: #4f7bff;
+  --cian: #60f2ff;
+  --violeta: #6a00ff;
+  --lila-claro: #dcd6f2;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.bg--tenue { opacity: .3; }
+
+.abs { position: absolute; }
+.abs img { display: block; }
+
+/* ---------- Títulos y textos ---------- */
+.i-titulo {
+  position: absolute;
+  left: 711px;
+  top: 120px;
+  transform: translateX(-50%);
+  font: italic 700 64px/1.5 'Chakra Petch', sans-serif;
+  letter-spacing: -1.472px;
+  text-transform: uppercase;
+  color: var(--azul);
+  text-shadow: 0 4px 25px rgba(0, 0, 0, .5);
+  white-space: nowrap;
+}
+.i-bajada {
+  position: absolute;
+  left: 114px;
+  top: 222px;
+  width: 1211px;
+  text-align: center;
+  font: 600 24px/1.37 'Orbitron', sans-serif;
+  letter-spacing: -.24px;
+  color: var(--texto);
+}
+
+/* ---------- Tarjetas TOCAR / TRANSFORMAR / GENERAR ---------- */
+.cards { position: absolute; left: 114px; top: 383px; width: 1187px; height: 292px; }
+.cards > img { position: absolute; display: block; }
+
+.card {
+  position: absolute;
+  top: 0;
+  height: 292px;
+  border: 1px solid var(--azul);
+  background: rgba(67, 4, 255, .12);
+  overflow: hidden;
+}
+.card.on { background: rgba(87, 4, 195, .5); box-shadow: 0 4px 50px rgba(79, 123, 255, .4); }
+.card.off { background: rgba(0, 0, 0, .15); }
+.card--1 { left: 0; width: 344px; border-width: 2px; padding: 20px 25px 20px 22px; display: flex; flex-direction: column; gap: 59px; }
+.card--2 { left: 426px; width: 356px; }
+.card--3 { left: 846px; width: 346px; padding: 20px 22px; display: flex; flex-direction: column; gap: 54px; }
+.card--1.on { box-shadow: 0 0 50px rgba(79, 123, 255, .4); }
+
+.card__etq {
+  font: 600 13px/1.2 'Orbitron', sans-serif;
+  letter-spacing: 1.56px;
+  color: #ff12ef;
+  white-space: nowrap;
+}
+.card--1 .card__etq { color: #ff3dbf; }
+.card--2 .card__etq { position: absolute; left: 22px; top: 20px; }
+.card__visual { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.card__pie {
+  font: 600 14px/1.4 'Orbitron', sans-serif;
+  color: #fdfdfd;
+  text-align: center;
+}
+.card--2 .card__pie { position: absolute; left: 175px; top: 245px; width: 320px; transform: translateX(-50%); color: #fff; }
+.card--3 .card__pie { color: #fff; }
+
+.grafico { position: absolute; left: 57px; top: 79px; width: 240px; height: 124px; }
+.grafico i, .grafico img { position: absolute; display: block; }
+.grafico i { height: 18px; border-radius: 3px; background: #ff3dbf; }
+.grafico .az { background: var(--azul); }
+.grafico .cn { background: var(--cian); }
+
+.tecla { position: absolute; top: 0; width: 34px; height: 90px; background: #fff; }
+.tecla--negra { width: 20px; height: 52px; background: #06040f; }
+.tecla--on-azul { background: var(--azul); }
+.tecla--on-cian { background: var(--cian); }
+
+.nota { position: absolute; height: 16px; border-radius: 2px; background: var(--azul); }
+.nota--cian { background: var(--cian); }
+
+/* ---------- Pista del volumen (segmentos) ---------- */
+.pista { position: absolute; left: 114px; top: 729px; width: 1187px; display: flex; gap: 6px; }
+.seg {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--azul);
+  border-radius: 3px;
+  font: 600 12px/normal 'Orbitron', sans-serif;
+  letter-spacing: .96px;
+  color: #fff;
+  white-space: nowrap;
+}
+.seg.on { background: rgba(79, 123, 255, .6); box-shadow: 0 0 22px rgba(79, 123, 255, .2); }
+.seg--sig {
+  border: 1.5px dashed #fff;
+  font: 700 14px/normal 'JetBrains Mono', monospace;
+  letter-spacing: .84px;
+}
+
+/* ---------- Slider de volumen ---------- */
+.slider { position: absolute; left: 124px; top: 848px; width: 1187px; height: 50px; user-select: none; touch-action: none; }
+.slider__pista {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 7px;
+  height: 36px;
+  border: 2px solid var(--azul);
+  border-radius: 999px;
+  background: rgba(190, 200, 230, .18);
+  box-shadow: 0 0 20px rgba(79, 123, 255, .35);
+  overflow: hidden;
+  cursor: pointer;
+}
+.slider__relleno { position: absolute; left: 0; top: 0; bottom: 0; background: var(--azul); }
+.slider__marca { position: absolute; top: 7px; height: 36px; border-left: 1.5px dashed rgba(255, 255, 255, .55); pointer-events: none; }
+.slider__marca.pasada { border-color: transparent; }
+.slider__pulgar {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+  transform: translateX(-50%);
+  cursor: grab;
+}
+.slider__pulgar:active { cursor: grabbing; }
+.slider__pulgar:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.slider--anima .slider__pulgar, .slider--anima .slider__relleno { transition: left .25s ease, width .25s ease; }
+
+/* ---------- Píldora de la pantalla intro ---------- */
+.pildora-vol {
+  position: absolute;
+  left: 720px;
+  top: 865px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 34px 10px 10px;
+  background: rgba(79, 123, 255, .4);
+  border: 2.5px solid var(--azul);
+  border-radius: 999px;
+  box-shadow: 0 0 36px rgba(79, 123, 255, .75);
+  text-decoration: none;
+  cursor: pointer;
+}
+.pildora-vol__icono {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background: var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pildora-vol__icono img { width: 32px; height: 32px; }
+.pildora-vol__texto {
+  font: 700 18px/1.2 'Orbitron', sans-serif;
+  letter-spacing: 1.08px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* ---------- Aplicaciones de Magenta ---------- */
+.a-titulo {
+  position: absolute;
+  left: 227px;
+  top: 120px;
+  width: 986px;
+  text-align: center;
+  font: italic 700 64px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .64px;
+  text-transform: uppercase;
+  color: var(--azul);
+  white-space: nowrap;
+}
+.a-caja {
+  position: absolute;
+  left: 125px;
+  top: 244px;
+  width: 1190px;
+  height: 364px;
+  background: rgba(79, 123, 255, .08);
+  border: 1px solid var(--azul);
+}
+.a-panel {
+  position: absolute;
+  left: 809px;
+  top: 279px;
+  width: 455px;
+  height: 284px;
+  background: rgba(106, 0, 255, .2);
+  border: 1px solid #a166f4;
+  box-shadow: 0 0 20px var(--violeta);
+}
+.a-nombre {
+  position: absolute;
+  font: 700 64px/1.1 'Orbitron', sans-serif;
+  letter-spacing: .64px;
+  color: #fff;
+  white-space: nowrap;
+}
+.a-desc {
+  position: absolute;
+  font: 700 26px/1.35 'Orbitron', sans-serif;
+  color: var(--lila-claro);
+}
+.a-tabs { position: absolute; left: 124px; top: 740px; width: 1191px; display: flex; gap: 6px; }
+.a-tab {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--azul);
+  border-radius: 3px;
+  font: 700 14px/normal 'Orbitron', sans-serif;
+  letter-spacing: .84px;
+  color: #fff;
+  white-space: nowrap;
+}
+.a-tab.on { background: rgba(79, 123, 255, .6); box-shadow: 0 0 20px var(--violeta); }
+.a-tab--sig { border: 1.5px dashed #fff; font-family: 'JetBrains Mono', monospace; }
+
+.glow-rosa, .glow-cian { position: absolute; display: block; }
+.n-rosa { position: absolute; display: block; background: #ff3dbf; box-shadow: 0 0 9.6px #ff3dbf; border-radius: 2px; height: 16px; }
+.n-cian { position: absolute; display: block; background: #26c3d1; box-shadow: 0 0 9.6px #26c3d1; border-radius: 2px; height: 16px; }
+.n-cian--claro { background: var(--cian); }
+.m-rosa, .m-cian { position: absolute; display: block; height: 10px; border-radius: 3px; }
+.m-rosa { background: #ff3dbf; }
+.m-cian { background: #26c3d1; }
+
+.rotada { position: absolute; display: flex; align-items: center; justify-content: center; }
+.rotada > div { position: relative; flex: none; }
+.rotada img { position: absolute; display: block; max-width: none; }
+.punto { position: absolute; width: 7px; height: 7px; }
+.punto img { position: absolute; display: block; max-width: none; left: -285.71%; top: -285.71%; width: 671.42%; height: 671.42%; }
+
+/* Temperatura */
+.t-etq {
+  position: absolute;
+  transform: translateX(-50%);
+  font: 700 20px/1.1 'Orbitron', sans-serif;
+  letter-spacing: .2px;
+  color: #fff;
+  white-space: nowrap;
+}
+.t-etq--chica { font-size: 15px; letter-spacing: .15px; }
+.t-rosa, .t-cian { position: absolute; display: block; }
+.t-rosa { width: 19px; height: 39px; top: 355px; background: #ff3dbf; box-shadow: 0 0 5px #ff3dbf; }
+.t-cian { width: 13px; background: #26c3d1; box-shadow: 0 0 5px #26c3d1; }
+
+/* ---------- ¡Ahora te toca crear! / Piano Genie ---------- */
+.g-titulo {
+  position: absolute;
+  transform: translateX(-50%);
+  font: italic 700 84px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .84px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.g-texto {
+  position: absolute;
+  transform: translateX(-50%);
+  text-align: center;
+  font: 600 24px/1.37 'Orbitron', sans-serif;
+  letter-spacing: -.24px;
+  color: #fff;
+}
+.g-texto .rosa { color: #ff3dbf; }
+
+/* ---------- Progreso núcleo 2 ---------- */
+.p2-titulo {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  top: 139px;
+  text-align: center;
+  font: italic 700 74px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .74px;
+  color: var(--azul);
+  text-shadow: 0 4px 25px rgba(0, 0, 0, .5);
+  white-space: nowrap;
+}
+.p2-nodos {
+  position: absolute;
+  left: 719.5px;
+  top: 390px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.p2-nodo { display: flex; flex-direction: column; align-items: center; gap: 16.8px; }
+.p2-nodo__circulo {
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  border: 2.4px dashed #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 900 67.2px/normal 'Orbitron', sans-serif;
+  color: #fff;
+}
+.p2-nodo__nombre { font: 700 21.6px/normal 'Orbitron', sans-serif; letter-spacing: .864px; color: #fff; white-space: nowrap; }
+.p2-nodo__cable { font: 400 16.8px/1.2 'JetBrains Mono', monospace; letter-spacing: 2.016px; color: #fff; white-space: nowrap; }
+.p2-nodo--hecho .p2-nodo__circulo { background: var(--azul); border: 0; color: #06040f; }
+.p2-nodo--hecho .p2-nodo__nombre, .p2-nodo--hecho .p2-nodo__cable { color: var(--azul); text-shadow: 0 4.8px 30px rgba(0, 0, 0, .5); }
+.p2-union { padding-bottom: 50px; }
+.p2-union i { display: block; width: 150px; height: 4px; background: #fff; }
+
+.p2-pildora {
+  position: absolute;
+  left: 720px;
+  top: 819px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 34px 10px 10px;
+  background: rgba(255, 61, 191, .5);
+  border: 2.5px solid #ff3dbf;
+  border-radius: 999px;
+  box-shadow: 0 0 36px #ff3dbf;
+  text-decoration: none;
+  cursor: pointer;
+}
+.p2-pildora__icono {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background: #ff3dbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.p2-pildora__icono img { width: 32px; height: 32px; }
+.p2-pildora__texto { font: 700 18px/1.2 'Orbitron', sans-serif; letter-spacing: 1.08px; color: #fff; white-space: nowrap; }
+
+/* ---------- Piano Genie (8 botones de colores) ---------- */
+.genie {
+  position: absolute;
+  left: 290px;
+  top: 470px;
+  width: 860px;
+  transform: rotate(-3.5deg);
+}
+.genie__tapa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px;
+  padding: 0 34px;
+  border-radius: 14px;
+  background: linear-gradient(#ffffff, #e7ebf2);
+  border: 2px solid #d3d8e2;
+  box-shadow: 0 34px 0 -2px #c3c9d6, 0 60px 60px rgba(0, 0, 0, .45);
+}
+.pad {
+  position: relative;
+  width: 84px;
+  height: 56px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 35%, #fff 0%, var(--c) 55%, var(--c) 100%);
+  box-shadow: 0 0 18px var(--c), inset 0 -4px 8px rgba(0, 0, 0, .12);
+  cursor: pointer;
+  transition: transform .08s, box-shadow .08s, filter .08s;
+}
+.pad:hover { filter: brightness(1.08); }
+.pad.on, .pad:active {
+  transform: scale(.92) translateY(2px);
+  filter: brightness(1.2);
+  box-shadow: 0 0 44px 8px var(--c), inset 0 -2px 6px rgba(0, 0, 0, .1);
+}
+.pad:focus-visible { outline: 3px solid #4f7bff; outline-offset: 4px; }
+
+/* ---------- Pianito (468:2772) ---------- */
+.pianito {
+  position: absolute;
+  left: 127px;
+  top: 460px;
+  width: 1186px;
+  height: 270px;
+  background: #0c0c12;
+  border: 2px solid #4f7bff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px #4f7bff;
+  box-sizing: content-box;
+  margin: -2px 0 0 -2px;
+}
+.pianito__blanca {
+  position: absolute;
+  top: 0;
+  width: 64px;
+  height: 270px;
+  padding: 0;
+  border: 0;
+  background: rgba(131, 123, 244, .17);
+  cursor: pointer;
+  transition: background .08s;
+}
+.pianito__blanca:first-child { border-radius: 15px 0 0 15px; }
+.pianito__blanca.on, .pianito__blanca:active { background: rgba(131, 123, 244, .55); }
+.pianito__negra {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 32px;
+  height: 126px;
+  padding: 0;
+  border: 0;
+  background: #36b7d7;
+  box-shadow: 0 0 38.9px rgba(38, 195, 209, .5);
+  cursor: pointer;
+  transition: background .08s;
+}
+.pianito__negra.on, .pianito__negra:active { background: #8ff4ff; box-shadow: 0 0 46px rgba(120, 240, 255, .9); }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google Magenta | Consola</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; background: #002037; overflow: hidden; font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace; }
+
+    /* Las pantallas de la infografía se muestran acá adentro, a pantalla completa. */
+    #pantalla { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; background: #002037; }
+
+    /* Panel chico del Arduino (arriba a la derecha). */
+    .consola { position: fixed; top: 10px; right: 10px; z-index: 10; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; color: #fff; font-size: 12px; }
+    .consola button {
+      font: inherit; color: #fff; cursor: pointer; border-radius: 999px; padding: 7px 14px;
+      background: rgba(255, 61, 191, .25); border: 1px solid #ff3dbf; backdrop-filter: blur(4px);
+    }
+    .consola button:hover { background: rgba(255, 61, 191, .5); }
+    .consola .chip { opacity: .35; transition: opacity .2s; background: rgba(0, 0, 0, .45); border-color: rgba(255, 255, 255, .25); }
+    .consola .chip:hover { opacity: 1; }
+    .consola .chip::before { content: '● '; color: #5dffa2; }
+    .consola .aviso { max-width: 320px; text-align: right; background: rgba(0, 0, 0, .6); padding: 6px 10px; border-radius: 8px; line-height: 1.4; }
+    .consola .monitor { width: 340px; max-height: 240px; overflow: auto; background: rgba(0, 0, 0, .75); padding: 8px 10px; border-radius: 8px; line-height: 1.5; white-space: pre-wrap; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <!-- allow="autoplay": las pantallas con sonido (piano, pads) pueden tocar sin un clic previo dentro del iframe -->
+  <iframe id="pantalla" src="index.html" allow="autoplay; fullscreen" title="Infografía Google Magenta"></iframe>
+
+  <div class="consola" id="consola">
+    <button id="btn-conectar" type="button">Conectar Arduino</button>
+    <button id="btn-chip" class="chip" type="button" hidden>Arduino</button>
+    <div class="aviso" id="aviso" hidden></div>
+    <div class="monitor" id="monitor" hidden></div>
+    <button id="btn-desconectar" type="button" hidden>Desconectar</button>
+  </div>
+
+  <script src="consola-shell.js"></script>
+</body>
+</html>

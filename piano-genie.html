@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Tu música empieza acá | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="interactua.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="bg" src="assets/interactua/fondo.png" alt="">
+    <main class="diseno">
+      <h1 class="g-titulo" style="left:720px;top:168px;font-size:64px;letter-spacing:.64px;color:#4f7bff">Tu música empieza aca!</h1>
+      <p class="g-texto" style="left:736px;top:265px;width:848px">Tocá una de los 8 botones de colores del Piano Genie y descubrí como la IA transforma tus pulsaciones en notas musicales</p>
+
+      <div class="pianito" id="pianito"></div>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script>
+    // Piano de 18 teclas blancas (de Fa3 a Si5) con 13 negras, tal como en el diseño.
+    const BLANCAS = [0, 2, 4, 6, 7, 9, 11, 12, 14, 16, 18, 19, 21, 23, 24, 26, 28, 30]; // semitonos desde Fa3
+    const NEGRAS = [ // [posición x en el diseño, semitonos desde Fa3]
+      [48, 1], [115, 3], [181, 5], [314, 8], [381, 10], [510, 13], [577, 15], [644, 17],
+      [774, 20], [840, 22], [972, 25], [1038, 27], [1100, 29],
+    ];
+    const FA3 = 53; // nota MIDI
+
+    const piano = document.getElementById('pianito');
+    let audio;
+    let avanzando = false;
+
+    const tocar = (tecla, semitonos) => {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audio.createOscillator();
+      const vol = audio.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = 440 * Math.pow(2, (FA3 + semitonos - 69) / 12);
+      vol.gain.setValueAtTime(.3, audio.currentTime);
+      vol.gain.exponentialRampToValueAtTime(.001, audio.currentTime + 1.4);
+      osc.connect(vol).connect(audio.destination);
+      osc.start();
+      osc.stop(audio.currentTime + 1.4);
+
+      tecla.classList.add('on');
+      setTimeout(() => tecla.classList.remove('on'), 160);
+
+      // Después de la primera nota se pasa a la siguiente pantalla.
+      if (!avanzando) {
+        avanzando = true;
+        setTimeout(() => { irA('progreso-2.html'); }, 3000);
+      }
+    };
+
+    const crear = (clase, left, semitonos) => {
+      const b = document.createElement('button');
+      b.className = clase;
+      b.style.left = `${left}px`;
+      b.addEventListener('pointerdown', () => tocar(b, semitonos));
+      piano.appendChild(b);
+      return b;
+    };
+    const teclas = BLANCAS.map((s, i) => crear('pianito__blanca', i * 66, s));
+    NEGRAS.forEach(([x, s]) => crear('pianito__negra', x, s));
+
+    // Teclado de la computadora: fila A-L y de ahí hacia la derecha tocan las blancas.
+    const LETRAS = 'asdfghjkl;\'zxcvbnm,.'.split('');
+    document.addEventListener('keydown', (e) => {
+      const i = LETRAS.indexOf(e.key.toLowerCase());
+      if (i >= 0 && i < teclas.length && !e.repeat) tocar(teclas[i], BLANCAS[i]);
+    });
+  </script>
+  <script src="consola.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="480" height="84.5" viewBox="0 0 480 84.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Linea-Canciones">
+<path id="Vector" d="M5 6H245L313 74H470" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="url(#paint0_linear_0_266)"/>
+<path id="Vector_2" d="M5 11C7.76142 11 10 8.76142 10 6C10 3.23858 7.76142 1 5 1C2.23858 1 0 3.23858 0 6C0 8.76142 2.23858 11 5 11Z" fill="#FF2FA8" fill-opacity="0.5"/>
+<path id="Vector_3" d="M145 12C148.314 12 151 9.31371 151 6C151 2.68629 148.314 0 145 0C141.686 0 139 2.68629 139 6C139 9.31371 141.686 12 145 12Z" fill="#FF7AD0"/>
+<path id="Vector_4" d="M375 80C378.314 80 381 77.3137 381 74C381 70.6863 378.314 68 375 68C371.686 68 369 70.6863 369 74C369 77.3137 371.686 80 375 80Z" fill="#FF7AD0"/>
+<path id="Vector_5" d="M435 65L445 74L435 83" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#FF7AD0"/>
+<path id="Vector_6" d="M470 84C475.523 84 480 79.5228 480 74C480 68.4772 475.523 64 470 64C464.477 64 460 68.4772 460 74C460 79.5228 464.477 84 470 84Z" fill="#FF2FA8"/>
+<path id="Vector_7" d="M470 78C472.209 78 474 76.2091 474 74C474 71.7909 472.209 70 470 70C467.791 70 466 71.7909 466 74C466 76.2091 467.791 78 470 78Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_266" x1="5" y1="-503" x2="470" y2="-503" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF2FA8" stop-opacity="0.18"/>
+<stop offset="0.6" stop-color="#FF2FA8" stop-opacity="0.75"/>
+<stop offset="1" stop-color="#FF7AD0"/>
+</linearGradient>
+</defs>
+</svg>

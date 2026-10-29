@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Así se alimenta el modelo | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="recorrido.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <main class="diseno">
+      <img class="halo" src="assets/recorrido/halo.svg" alt="">
+
+      <h1 class="titulo" style="left:386px">Así se alimenta el modelo</h1>
+      <p class="bajada" style="top:211px">La inteligencia artificial aprende analizando miles de canciones, grabaciones de audio y partituras previas para reconocer patrones musicales.</p>
+
+      <div class="fuentes">
+        <div class="fuente"><img src="assets/recorrido/fuente-audio.svg" alt=""><span>CANCIONES</span></div>
+        <div class="fuente"><img src="assets/recorrido/fuente-midi.svg" alt=""><span>MIDI</span></div>
+        <div class="fuente"><img src="assets/recorrido/fuente-texto.svg" alt=""><span>PARTITURAS</span></div>
+      </div>
+
+      <div class="abs" style="inset:43.55% 31.94% 48.24% 34.72%">
+        <img class="abs" style="left:0;top:0;width:100%;height:100.6%" src="assets/recorrido/linea-canciones.svg" alt="">
+      </div>
+      <div class="abs" style="inset:54.59% 31.94% 43.46% 34.72%">
+        <img class="abs" style="left:0;top:-2.5%;width:100%;height:105%" src="assets/recorrido/linea-midi.svg" alt="">
+      </div>
+      <div class="abs" style="inset:59.38% 31.94% 32.42% 34.72%">
+        <img class="abs" style="left:0;top:-0.6%;width:100%;height:100.6%" src="assets/recorrido/linea-partituras.svg" alt="">
+      </div>
+
+      <img class="abs" style="left:1005px;top:410px;width:300px;height:305px;object-fit:cover" src="assets/recorrido/logo.png" alt="Logo Google Magenta">
+
+      <a class="pildora-paso" href="canales-midi.html" style="--p-bg:rgba(212,157,222,.12);--p-c:#d49dde;--p-g:rgba(212,157,222,.45)">
+        <span class="pildora-paso__icono"><img src="assets/recorrido/icono-perilla.svg" alt=""></span>
+        <span class="pildora-paso__texto">GIRÁ LA PERILLA PARA CONTINUAR</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

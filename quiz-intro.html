@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Quiz | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Roboto+Condensed:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="bg" src="assets/quiz/fondo.png" alt="">
+    <main class="diseno">
+      <div class="q-etiqueta qi-etiqueta">QUIZ - 5 PREGUNTAS</div>
+      <h1 class="qi-titulo">PONÉ A PRUEBA TUS CONOCIMIENTOS</h1>
+      <p class="qi-bajada">Cinco preguntas sobre cómo la IA crea música, qué es el MIDI y cómo genera melodías.</p>
+
+      <section class="qi-caja">
+        <p class="qi-caja__titulo">CÓMO SE RESPONDE</p>
+        <div class="qi-pads">
+          <div class="qi-pad" style="left:0"><b>1</b><span>DO</span></div>
+          <div class="qi-pad" style="left:143px"><b>2</b><span>RE</span></div>
+          <div class="qi-pad" style="left:286px"><b>3</b><span>MI</span></div>
+          <div class="qi-pad" style="left:429px"><b>4</b><span>FA</span></div>
+        </div>
+        <p class="qi-caja__ayuda">Pads 1 a 4: elegir una respuesta &nbsp;·&nbsp; Cualquier pad: seguir</p>
+      </section>
+
+      <img class="qi-logo" src="assets/recorrido/logo.png" alt="Logo Google Magenta">
+
+      <a class="pildora-paso" href="quiz.html" style="--p-bg:rgba(255,61,191,.16);--p-c:#ff3dbf;--p-g:rgba(255,61,191,.45)">
+        <span class="pildora-paso__icono"><img src="assets/quiz/icono-pad.svg" alt=""></span>
+        <span class="pildora-paso__texto">EMPEZAR · TOCÁ CUALQUIER PAD</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script>
+    // Cada intento arranca de cero.
+    sessionStorage.removeItem('quizParcial');
+    // Cualquier pad (teclas 1 a 4) también empieza el quiz.
+    document.addEventListener('keydown', (e) => { if (/^[1-4]$/.test(e.key)) irA('quiz.html'); });
+  </script>
+  <script src="consola.js"></script>
+</body>
+</html>

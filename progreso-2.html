@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Progreso registrado | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="interactua.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="bg" src="assets/interactua/fondo.png" alt="">
+    <main class="diseno">
+      <h1 class="p2-titulo">¡PROGRESO REGISTRADO!</h1>
+
+      <div class="p2-nodos">
+        <div class="p2-nodo">
+          <div class="p2-nodo__circulo">1</div>
+          <p class="p2-nodo__nombre">CÓMO FUNCIONA</p>
+          <p class="p2-nodo__cable">CABLE 1</p>
+        </div>
+        <div class="p2-union"><i></i></div>
+        <div class="p2-nodo p2-nodo--hecho">
+          <div class="p2-nodo__circulo">✓</div>
+          <p class="p2-nodo__nombre">CÓMO INTERACTÚA</p>
+          <p class="p2-nodo__cable">CABLE 2</p>
+        </div>
+        <div class="p2-union"><i></i></div>
+        <div class="p2-nodo">
+          <div class="p2-nodo__circulo">3</div>
+          <p class="p2-nodo__nombre">QUIZ</p>
+          <p class="p2-nodo__cable">CABLE 3</p>
+        </div>
+      </div>
+
+      <a class="pildora-tut" href="ponete-a-prueba.html" style="--tut-bg:rgba(255,61,191,.5);--tut-c:#ff3dbf;--tut-g:#ff3dbf">
+        <span class="pildora-tut__icono"><img src="assets/recorrido/icono-cable.svg" alt=""></span>
+        <span class="pildora-tut__texto">CONECTÁ EL CABLE 3</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

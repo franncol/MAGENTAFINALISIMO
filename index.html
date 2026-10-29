@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Google Magenta</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <main class="inicio" id="inicio">
+    <!-- La imagen es una sola (fondo + texto), así que el glitch se hace con copias de ella: canales de color separados y franjas desplazadas. -->
+    <div class="inicio__fondo" id="fondo">
+      <div class="g-capas">
+        <img class="g-img g-base" src="assets/inicio/frecuencia-futura.png" alt="Frecuencia Futura">
+        <img class="g-img g-canal g-rojo" src="assets/inicio/frecuencia-futura.png" alt="" aria-hidden="true">
+        <img class="g-img g-canal g-cian" src="assets/inicio/frecuencia-futura.png" alt="" aria-hidden="true">
+        <div class="g-franjas" id="franjas" aria-hidden="true"></div>
+        <div class="g-lineas" aria-hidden="true"></div>
+        <div class="g-barrido" aria-hidden="true"></div>
+      </div>
+    </div>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <filter id="solo-rojo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/></filter>
+      <filter id="solo-cian" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/></filter>
+    </svg>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="script.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

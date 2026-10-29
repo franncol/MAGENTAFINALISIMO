@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>¿Cuánta música escuchó cada modelo? | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&family=Russo+One&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="n1.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <div class="gr-fondo"></div>
+    <main class="diseno">
+      <h1 class="gr-titulo">¿Cuánta música escuchó cada modelo?</h1>
+      <img class="gr-sub" src="assets/n1/grafico-sub.svg" alt="Cada dataset es una pista: cuanto más largo el clip y más apretada la onda, más horas escuchó. Tocá una pista para oírla.">
+
+      <div class="gr-grafico">
+        <span class="gr-pista">PISTA</span>
+        <div class="gr-eje"><span style="left:0px;--t:0px">1 h</span><span style="left:143.6px;--t:13.9px">10 h</span><span style="left:298px;--t:17.5px">100 h</span><span style="left:448.8px;--t:24.7px">1 mil h</span><span style="left:603.2px;--t:28.3px">10 mil h</span><span style="left:757.6px;--t:31.9px">100 mil h</span><span style="left:912px;--t:35px">1 M h</span></div>
+        <div class="gr-filas">
+          <div class="gr-fila gr-fila--midi" data-id="midi" role="button" tabindex="0">
+            <div class="gr-etq"><i class="gr-punto"></i><span class="gr-nombre">Groove MIDI</span><span class="gr-anio">2019 · batería</span></div>
+            <div class="gr-carril">
+              <div class="gr-onda" style="width:181.1px"><img src="assets/n1/onda-midi.svg" alt="" style="left:-0.39%;width:100.39%"></div>
+              <i class="gr-cursor"></i>
+              <span class="gr-valor" style="left:187.1px">13,6 h</span>
+            </div>
+          </div>
+          <div class="gr-fila gr-fila--midi" data-id="maestro" role="button" tabindex="0">
+            <div class="gr-etq"><i class="gr-punto"></i><span class="gr-nombre">MAESTRO</span><span class="gr-anio">2018 · piano</span></div>
+            <div class="gr-carril">
+              <div class="gr-onda" style="width:355.3px"><img src="assets/n1/onda-maestro.svg" alt="" style="left:-0.24%;width:100.24%"></div>
+              <i class="gr-cursor"></i>
+              <span class="gr-valor" style="left:361.3px">172 h</span>
+            </div>
+          </div>
+          <div class="gr-fila gr-fila--audio" data-id="nsynth" role="button" tabindex="0">
+            <div class="gr-etq"><i class="gr-punto"></i><span class="gr-nombre">NSynth</span><span class="gr-anio">2017 · sonido</span></div>
+            <div class="gr-carril">
+              <div class="gr-onda" style="width:402px"><img src="assets/n1/onda-nsynth.svg" alt="" style="left:-0.18%;width:100.18%"></div>
+              <i class="gr-cursor"></i>
+              <span class="gr-valor" style="left:408px">≈340 h</span>
+            </div>
+          </div>
+          <div class="gr-fila gr-fila--audio" data-id="rt" role="button" tabindex="0">
+            <div class="gr-etq"><i class="gr-punto"></i><span class="gr-nombre">Magenta RT</span><span class="gr-anio">2025 · sonido</span></div>
+            <div class="gr-carril">
+              <div class="gr-onda" style="width:836px"><img src="assets/n1/onda-rt.svg" alt="" style="left:-0.78%;width:101.57%"></div>
+              <i class="gr-cursor"></i>
+              <span class="gr-valor" style="left:842px">190.000 h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="gr-tarjeta" id="tarjeta">
+        <img src="assets/n1/tarjeta.png" alt="">
+        <div class="gr-t-izq">
+          <span class="gr-t-anio" id="t-anio"></span>
+          <span class="gr-t-tag" id="t-tag"></span>
+          <p class="gr-t-nombre" id="t-nombre"></p>
+          <p class="gr-t-desc" id="t-desc"></p>
+        </div>
+        <div class="gr-t-der">
+          <p class="gr-t-etq">SI LO ESCUCHARAS SIN PARAR</p>
+          <p class="gr-t-grande" id="t-grande"></p>
+          <p class="gr-t-chico" id="t-chico"></p>
+        </div>
+      </section>
+
+      <a class="n1-boton" href="progreso.html" style="left:1321px;top:869px"><img src="assets/n1/icono-perilla.svg" alt=""></a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script>
+    // Al principio no hay ninguna pista elegida ni tarjeta; al tocar una pista aparece su información.
+    const DATOS = {"midi":{"tipo":"midi","año":"2019","tag":"Notas · MIDI · batería","nombre":"Groove MIDI","desc":"Baterista tocando en una batería electrónica. Con esto se entrenó GrooVAE, el motor de Groove y Drumify en Magenta Studio.","grande":"≈ medio día","chico":"13,6 horas · 10 bateristas · 1.150 archivos MIDI"},"maestro":{"tipo":"midi","año":"2018","tag":"Notas · MIDI · piano","nombre":"MAESTRO","desc":"Interpretaciones del concurso Piano-e-Competition grabadas con sus notas exactas. Es la base de los modelos de piano de Magenta, como Wave2Midi2Wave.","grande":"≈ 7 días","chico":"172,3 horas de pianistas reales (versión 1)"},"nsynth":{"tipo":"audio","año":"2017","tag":"Sonido · audio","nombre":"NSynth","desc":"El sintetizador neuronal aprendió el timbre de más de mil instrumentos a partir de notas sueltas de cuatro segundos cada una.","grande":"≈ 14 días","chico":"~340 horas · 305.979 notas de 1.006 instrumentos"},"rt":{"tipo":"audio","año":"2025","tag":"Sonido · audio","nombre":"Magenta RT","desc":"El modelo de música en vivo, de 800 millones de parámetros. Ya no escucha notas sueltas ni un solo instrumento: escucha canciones completas.","grande":"≈ 21 años","chico":"~190.000 horas de música mayormente instrumental"}};
+    const filas = document.querySelectorAll('.gr-fila');
+    const tarjeta = document.getElementById('tarjeta');
+    const poner = (id, txt) => { document.getElementById(id).textContent = txt; };
+    function elegir(fila) {
+      const d = DATOS[fila.dataset.id];
+      filas.forEach((f) => f.classList.toggle('on', f === fila));
+      tarjeta.classList.toggle('midi', d.tipo === 'midi');
+      poner('t-anio', d.año);
+      poner('t-tag', d.tag);
+      poner('t-nombre', d.nombre);
+      poner('t-desc', d.desc);
+      poner('t-grande', d.grande);
+      poner('t-chico', d.chico);
+      tarjeta.classList.add('visible');
+    }
+    filas.forEach((f) => {
+      f.addEventListener('click', () => elegir(f));
+      f.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') elegir(f); });
+    });
+  </script>
+  <script src="consola.js"></script>
+</body>
+</html>

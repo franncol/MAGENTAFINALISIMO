@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Los tres canales de entrada: Audio | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="recorrido.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <main class="diseno">
+      <img class="halo" src="assets/recorrido/halo.svg" alt="">
+
+      <h1 class="titulo titulo--centro">Los tres canales de entrada</h1>
+
+      <nav class="pestanas">
+        <a class="pestana" href="canales-midi.html">MIDI</a>
+        <a class="pestana pestana--activa" href="canales-audio.html">AUDIO</a>
+        <a class="pestana" href="canales-texto.html">TEXTO</a>
+      </nav>
+
+      <section class="canal canal--audio">
+        <img class="canal__icono" src="assets/recorrido/icono-audio.svg" alt="">
+        <p class="canal__nombre">AUDIO</p>
+        <p class="canal__desc">Sonidos reales<br>o tarareos.</p>
+        <div class="canal__grafico">
+          <i style="left:0;top:25px;height:20px"></i>
+          <i style="left:20px;top:13px;height:44px"></i>
+          <i style="left:40px;top:3px;height:64px"></i>
+          <i style="left:60px;top:18px;height:34px"></i>
+          <i style="left:80px;top:0;height:70px"></i>
+          <i style="left:100px;top:10px;height:50px"></i>
+          <i style="left:120px;top:22px;height:26px"></i>
+          <i style="left:140px;top:5px;height:60px"></i>
+          <i style="left:160px;top:15px;height:40px"></i>
+          <i style="left:180px;top:26px;height:18px"></i>
+          <i style="left:200px;top:8px;height:54px"></i>
+          <i style="left:220px;top:2px;height:66px"></i>
+          <i style="left:240px;top:20px;height:30px"></i>
+          <i style="left:260px;top:12px;height:46px"></i>
+        </div>
+      </section>
+
+      <div class="abs" style="left:642px;top:386px;width:404px;height:335px;overflow:hidden">
+        <img class="abs" style="left:-0.06%;top:0;width:168.94%;height:157.61%;max-width:none" src="assets/recorrido/ondas.png" alt="">
+      </div>
+      <div class="abs" style="left:972px;top:386px;width:404px;height:335px;overflow:hidden">
+        <img class="abs" style="left:-0.06%;top:0;width:168.94%;height:157.61%;max-width:none" src="assets/recorrido/ondas.png" alt="">
+      </div>
+
+      <a class="pildora-paso" href="canales-texto.html" style="--p-bg:rgba(212,157,222,.12);--p-c:#d49dde;--p-g:rgba(212,157,222,.45)">
+        <span class="pildora-paso__icono"><img src="assets/recorrido/icono-perilla.svg" alt=""></span>
+        <span class="pildora-paso__texto">GIRÁ LA PERILLA: CAMBIÁ DE CANAL Y SEGUÍ</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script src="consola.js"></script>
+</body>
+</html>

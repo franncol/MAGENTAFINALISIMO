@@ -1,0 +1,120 @@
+.titulo {
+  position: absolute;
+  left: 411px;
+  top: 141px;
+  width: 986px;
+  font: italic 700 64px/normal 'Chakra Petch', sans-serif;
+  letter-spacing: -2.56px;
+  color: var(--texto);
+}
+
+.subtitulo {
+  position: absolute;
+  left: 685px;
+  top: 254px;
+  width: 692px;
+  text-align: right;
+  font: 400 34px/normal 'Orbitron', sans-serif;
+  color: var(--texto);
+}
+
+.mascota {
+  position: absolute;
+  left: 77px;
+  top: 304px;
+  width: 518px;
+  height: 550px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.mascota img {
+  position: absolute;
+  left: -0.02%;
+  top: -17.09%;
+  width: 100.04%;
+  height: 133.27%;
+  max-width: none;
+}
+
+.cable {
+  position: absolute;
+  width: 176px;
+  height: 282px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cable__circulo {
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  border: 2px dashed var(--texto-tenue);
+  border-radius: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.cable__circulo img { width: 64px; height: 64px; }
+
+.cable__titulo {
+  font: 700 18px/normal 'Orbitron', sans-serif;
+  letter-spacing: 1.08px;
+  color: var(--texto);
+  white-space: nowrap;
+}
+
+.cable__estado {
+  font: 400 14px/1.2 'JetBrains Mono', monospace;
+  letter-spacing: 1.68px;
+  color: var(--texto-tenue);
+  white-space: nowrap;
+}
+
+.cable:hover .cable__circulo,
+.cable:focus-visible .cable__circulo {
+  border-color: var(--texto);
+  background: rgba(255, 255, 255, .05);
+}
+
+/* Único elemento con glow de la pantalla */
+.pildora {
+  position: absolute;
+  left: 1077px;
+  top: 790px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 34px 10px 10px;
+  border: 2.5px solid #fd3db5;
+  border-radius: 999px;
+  box-shadow: 0 0 36px #ff3dbf;
+}
+
+.pildora__icono {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background: var(--magenta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pildora__icono img { width: 32px; height: 32px; }
+
+.pildora__texto {
+  font: 700 18px/1.2 'Orbitron', sans-serif;
+  letter-spacing: 1.08px;
+  color: var(--texto);
+  white-space: nowrap;
+}
+
+.pildora { text-decoration: none; cursor: pointer; }

@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="480" height="21" viewBox="0 0 480 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Linea-MIDI">
+<path id="Vector" d="M5.09554 10.5H469.809" stroke-width="3" stroke-linecap="round" stroke="url(#paint0_linear_0_237)"/>
+<path id="Vector_2" d="M5.09554 15.5C7.90973 15.5 10.1911 13.2614 10.1911 10.5C10.1911 7.73859 7.90973 5.50002 5.09554 5.50002C2.28135 5.50002 0 7.73859 0 10.5C0 13.2614 2.28135 15.5 5.09554 15.5Z" fill="#4F8BFF" fill-opacity="0.5"/>
+<path id="Vector_3" d="M239.49 16.5C242.867 16.5 245.605 13.8137 245.605 10.5C245.605 7.18631 242.867 4.50002 239.49 4.50002C236.113 4.50002 233.376 7.18631 233.376 10.5C233.376 13.8137 236.113 16.5 239.49 16.5Z" fill="#7FE6FF"/>
+<path id="Vector_4" d="M433.121 1.50002L443.312 10.5L433.121 19.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#7FE6FF"/>
+<path id="Vector_5" d="M469.809 20.5C475.437 20.5 480 16.0229 480 10.5C480 4.97717 475.437 0.500018 469.809 0.500018C464.181 0.500018 459.618 4.97717 459.618 10.5C459.618 16.0229 464.181 20.5 469.809 20.5Z" fill="#27E6FF"/>
+<path id="Vector_6" d="M469.809 14.5C472.06 14.5 473.885 12.7092 473.885 10.5C473.885 8.29088 472.06 6.50002 469.809 6.50002C467.558 6.50002 465.732 8.29088 465.732 10.5C465.732 12.7092 467.558 14.5 469.809 14.5Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_237" x1="5.09554" y1="-615.5" x2="469.809" y2="-615.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4F8BFF" stop-opacity="0.18"/>
+<stop offset="0.6" stop-color="#4F8BFF" stop-opacity="0.75"/>
+<stop offset="1" stop-color="#7FE6FF"/>
+</linearGradient>
+</defs>
+</svg>

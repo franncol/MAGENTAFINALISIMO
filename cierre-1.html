@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Resultado del quiz | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&family=Roboto+Condensed:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="bg" src="assets/quiz/fondo.png" alt="">
+    <main class="diseno">
+      <div class="c1-puntaje"><b id="puntaje">4</b><span>/5</span></div>
+      <h1 class="c1-titulo" id="titulo">¡MUY BIEN!</h1>
+      <p class="c1-bajada">Ya conoces lo esencial de la IA musical</p>
+      <div class="c1-marcas" id="marcas"></div>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script>
+    // Resultados guardados por el quiz (sin quiz previo se muestra el ejemplo del diseño: 4/5, falló la P3).
+    let res;
+    try { res = JSON.parse(sessionStorage.getItem('quizResultados')); } catch (e) { res = null; }
+    if (!Array.isArray(res) || res.length !== 5) res = [true, true, false, true, true];
+
+    const aciertos = res.filter(Boolean).length;
+    document.getElementById('puntaje').textContent = aciertos;
+    document.getElementById('titulo').textContent =
+      aciertos >= 4 ? '¡MUY BIEN!' : aciertos >= 2 ? '¡BUEN INTENTO!' : '¡SEGUÍ PRACTICANDO!';
+    document.getElementById('marcas').innerHTML = res.map((ok, i) => `
+      <div class="c1-marca${ok ? '' : ' c1-marca--mal'}">
+        <div class="c1-marca__caja">${ok ? '✓' : '✕'}</div>
+        <span class="c1-marca__n">P${i + 1}</span>
+      </div>`).join('');
+
+    // Se va solo a los pocos segundos.
+    setTimeout(() => { irA('cierre-2.html'); }, 2000);
+  </script>
+  <script src="consola.js"></script>
+</body>
+</html>

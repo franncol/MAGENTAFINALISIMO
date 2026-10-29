@@ -1,0 +1,18 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="480" height="84.5" viewBox="0 0 480 84.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Linea-Partituras">
+<path id="Vector" d="M5 78.5H245L313 10.5H470" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="url(#paint0_linear_0_229)"/>
+<path id="Vector_2" d="M5 83.5C7.76142 83.5 10 81.2614 10 78.5C10 75.7386 7.76142 73.5 5 73.5C2.23858 73.5 0 75.7386 0 78.5C0 81.2614 2.23858 83.5 5 83.5Z" fill="#9B6BFF" fill-opacity="0.5"/>
+<path id="Vector_3" d="M105 84.5C108.314 84.5 111 81.8137 111 78.5C111 75.1863 108.314 72.5 105 72.5C101.686 72.5 99 75.1863 99 78.5C99 81.8137 101.686 84.5 105 84.5Z" fill="#C9A8FF"/>
+<path id="Vector_4" d="M405 16.5C408.314 16.5 411 13.8137 411 10.5C411 7.1863 408.314 4.50001 405 4.50001C401.686 4.50001 399 7.1863 399 10.5C399 13.8137 401.686 16.5 405 16.5Z" fill="#C9A8FF"/>
+<path id="Vector_5" d="M435 1.50001L445 10.5L435 19.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#C9A8FF"/>
+<path id="Vector_6" d="M470 20.5C475.523 20.5 480 16.0229 480 10.5C480 4.97717 475.523 0.500013 470 0.500013C464.477 0.500013 460 4.97717 460 10.5C460 16.0229 464.477 20.5 470 20.5Z" fill="#9B6BFF"/>
+<path id="Vector_7" d="M470 14.5C472.209 14.5 474 12.7092 474 10.5C474 8.29087 472.209 6.50001 470 6.50001C467.791 6.50001 466 8.29087 466 10.5C466 12.7092 467.791 14.5 470 14.5Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_229" x1="5" y1="-664.5" x2="470" y2="-664.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#9B6BFF" stop-opacity="0.18"/>
+<stop offset="0.6" stop-color="#9B6BFF" stop-opacity="0.75"/>
+<stop offset="1" stop-color="#C9A8FF"/>
+</linearGradient>
+</defs>
+</svg>

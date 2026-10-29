@@ -1,0 +1,213 @@
+/*
+  TRANSICIONES — estilos
+  Coreografía de ENTRADA de cada pantalla + capas de transición (las crea transicion.js).
+  Todo cuelga de html.tr-play, que transicion.js activa cuando la pantalla ya está lista y se está descubriendo.
+  Para tocar tiempos: --tr-paso (separación entre elementos) y las duraciones de cada @keyframes.
+*/
+:root {
+  --tr-ease: cubic-bezier(.16, 1, .3, 1);
+  --tr-pop: cubic-bezier(.34, 1.56, .64, 1);
+  --tr-dur: .6s;      /* duración base de cada elemento al entrar */
+  --tr-ini: 60ms;     /* espera antes del primero */
+  --tr-paso: 45ms;    /* separación entre un elemento y el siguiente */
+  --tr-rosa: #ff3dbf;
+  --tr-azul: #4f7bff;
+  --tr-cian: #60f2ff;
+  --tr-fondo: #002037;
+}
+/* Dentro de un núcleo (sin capa): todavía más rápido, sin espera. */
+html.tr-interno { --tr-dur: .5s; --tr-ini: 0ms; --tr-paso: 28ms; }
+
+/* ===================== CAPAS DE TRANSICIÓN ===================== */
+.tr { position: fixed; inset: 0; z-index: 2147483000; pointer-events: none; overflow: hidden; }
+
+/* --- pixel: grilla de bloques --- */
+.tr-px { display: grid; grid-template-columns: repeat(var(--cols), 1fr); grid-template-rows: repeat(var(--rows), 1fr); }
+.tr-px i { background: var(--bg, var(--tr-fondo)); box-shadow: 0 0 0 1px var(--bg, var(--tr-fondo)); opacity: 0; }
+.tr-px.cubierto i { opacity: 1; }
+.tr-px.cubre i   { animation: tr-px-in 190ms steps(4) var(--d) both; }
+.tr-px.revela i  { animation: tr-px-out 190ms steps(4) var(--d) both; }
+@keyframes tr-px-in  { 0% { opacity: 0; scale: .3; } 40% { opacity: 1; scale: 1; background: var(--ac, var(--bg)); } 100% { opacity: 1; scale: 1; background: var(--bg); } }
+@keyframes tr-px-out { 0% { opacity: 1; scale: 1; } 40% { opacity: 1; scale: 1; background: var(--ac, var(--bg)); } 100% { opacity: 0; scale: .3; } }
+
+/* --- onda --- */
+.tr-disco { position: absolute; inset: 0; background: var(--tr-fondo); }
+.tr-anillo { position: absolute; left: 50%; top: 50%; width: 22vmax; height: 22vmax; margin: -11vmax 0 0 -11vmax; border: 3px solid var(--tr-rosa); border-radius: 50%; opacity: 0; }
+
+/* --- barrido --- */
+.tr-barrido-cont { }
+.tr-barrido {
+  position: absolute; top: -5vh; bottom: -5vh; left: -25vw; width: 150vw;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 61, 191, .07) 0 2px, transparent 2px 6px),
+    linear-gradient(90deg, var(--tr-fondo) 0%, var(--tr-fondo) 100%);
+  border-right: 5px solid var(--ac, var(--tr-rosa));
+  box-shadow: 14px 0 0 0 var(--ac2, var(--tr-azul)), 28px 0 60px 0 color-mix(in srgb, var(--ac, var(--tr-rosa)) 60%, transparent);
+}
+
+/* --- zoom --- */
+.tr-zoom { }
+
+/* ===================== ENTRADA DE LOS ELEMENTOS ===================== */
+/* Fondos y velos: aparecen primero, con un zoom muy lento. */
+.tr-play .stage > :not(.diseno) { animation: tr-fondo .8s var(--tr-ease) backwards; }
+@keyframes tr-fondo { from { opacity: 0; scale: 1.06; } }
+@keyframes tr-fondo-suave { from { opacity: 0; } }
+
+/* Regla general: todo lo que cuelga de .diseno (o de un contenedor) sube y aparece, uno tras otro. */
+.tr-play .diseno > *,
+.tr-play :is(.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > * {
+  animation: tr-sube var(--tr-dur) var(--tr-ease) backwards;
+  animation-delay: calc(var(--tr-ini) + min(var(--i, 0) * var(--tr-paso), 520ms));
+}
+@keyframes tr-sube { from { opacity: 0; translate: 0 26px; } }
+
+/* Los contenedores no se animan solos: se animan sus hijos. */
+.tr-play .diseno > :is(.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) { animation: none; }
+.tr-play .q-bloque > .q-opciones { animation: none; }
+
+/* Títulos: se escriben de izquierda a derecha, saliendo del desenfoque. */
+.tr-play :is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :is(h1,h2,[class*="titulo"]) { animation-name: tr-titulo; animation-duration: calc(var(--tr-dur) * 1.3); }
+@keyframes tr-titulo {
+  from { opacity: 0; clip-path: inset(-12% 100% -12% -3%); translate: -34px 0; filter: blur(8px); }
+  to   { opacity: 1; clip-path: inset(-12% -3% -12% -3%); translate: 0 0; filter: blur(0); }
+}
+
+/* Mascotas: suben con rebote. */
+.tr-play .diseno > [class*="mascota"] { animation-name: tr-mascota; animation-duration: calc(var(--tr-dur) * 1.4); animation-timing-function: var(--tr-pop); }
+@keyframes tr-mascota { from { opacity: 0; translate: 0 100px; scale: .85; } }
+
+/* GIFs y paneles: aparecen con un pequeño zoom. */
+.tr-play .diseno > :is(.gif, .n2-panel, .n2-caja) { animation-name: tr-zoom-in; animation-duration: calc(var(--tr-dur) * 1.2); }
+@keyframes tr-zoom-in { from { opacity: 0; scale: .92; } }
+
+/* Tarjetas, pads, filas, nodos: "pop". */
+.tr-play :is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :is(.n2-card, .mp-card, .fuente, .motor__card, .gr-fila, .eq-pad, .q-op, .nodo, .p2-nodo, .c2-nodo, .c1-marca, .qi-pad) {
+  animation-name: tr-pop; animation-duration: calc(var(--tr-dur) * 1.1); animation-timing-function: var(--tr-pop);
+}
+@keyframes tr-pop { from { opacity: 0; scale: .8; translate: 0 22px; } }
+
+/* Píldoras de acción: entran con pop y después "respiran" para invitar a actuar. */
+.tr-play .diseno > :is(.pildora-tut, .pildora-paso, .c2-pildora, .n1-boton),
+.tr-play .q-bloque :is(.pildora-paso) {
+  animation: tr-pildora calc(var(--tr-dur) * 1.1) var(--tr-pop) backwards, tr-respira 2.8s ease-in-out infinite;
+  animation-delay: calc(200ms + min(var(--i, 0) * var(--tr-paso), 520ms)), calc(1.4s + min(var(--i, 0) * var(--tr-paso), 520ms));
+}
+@keyframes tr-pildora { from { opacity: 0; scale: .7; translate: 0 22px; } }
+@keyframes tr-respira { 50% { scale: 1.018; filter: brightness(1.16); } }
+
+/* Menú vertical de "¿Cómo interactúa?": la línea se traza y los ítems entran desde la izquierda. */
+.tr-play .n2-nav > .n2-nav__linea { animation-name: tr-traza-v; animation-duration: calc(var(--tr-dur) * 1.2); }
+@keyframes tr-traza-v { from { clip-path: inset(0 0 100% 0); opacity: 0; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+.tr-play .n2-nav > .n2-nav__item { animation-name: tr-lateral; }
+@keyframes tr-lateral { from { opacity: 0; translate: -44px 0; } }
+.tr-play .n2-nav > :is(.n2-nav__punto, .n2-nav__cx) { animation-name: tr-punto; animation-timing-function: var(--tr-pop); }
+@keyframes tr-punto { from { opacity: 0; scale: 0; } }
+
+/* Pestañas de canales. */
+.tr-play .pestanas > * { animation-name: tr-lateral; }
+
+/* Líneas que unen nodos del recorrido: se dibujan. */
+.tr-play :is(.recorrido, .p2-nodos, .c2-nodos) > :is(.union, .p2-union, .c2-union) { animation-name: tr-traza-h; animation-duration: calc(var(--tr-dur) * 1.1); }
+@keyframes tr-traza-h { from { clip-path: inset(0 100% 0 0); opacity: 0; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+
+/* El nodo completado (✓) se enciende al final. */
+.tr-play :is(.nodo--hecho .nodo__circulo, .p2-nodo--hecho .p2-nodo__circulo, .c2-nodo--hecho .c2-nodo__circulo) {
+  animation: tr-check .6s var(--tr-pop) 700ms backwards;
+}
+@keyframes tr-check { from { scale: .4; filter: brightness(2.2); } 60% { scale: 1.18; } }
+
+/* Piano: las teclas "suenan" de izquierda a derecha. */
+.tr-play .pianito > * { animation-name: tr-tecla; animation-duration: .45s; animation-timing-function: var(--tr-pop); animation-delay: calc(120ms + var(--i, 0) * 18ms); }
+@keyframes tr-tecla { from { opacity: 0; translate: 0 40px; } }
+
+/* Barras de probabilidad (motor) y de gráficos: crecen desde la izquierda. */
+.tr-play .motor__pista > i { transform-origin: left center; animation: tr-crece .8s var(--tr-ease) 600ms backwards; }
+@keyframes tr-crece { from { scale: 0 1; } }
+
+/* Quiz: la opción elegida reacciona. */
+.tr-play .q-bloque .q-op.correcta { animation: tr-bien .55s var(--tr-pop); }
+.tr-play .q-bloque .q-op.incorrecta { animation: tr-mal .45s ease-in-out; }
+@keyframes tr-bien { 40% { scale: 1.035; filter: brightness(1.25); } }
+@keyframes tr-mal { 20% { translate: -10px 0; } 40% { translate: 9px 0; } 60% { translate: -6px 0; } 80% { translate: 4px 0; } }
+.q-dato__etq:not([hidden]), .q-dato__txt { animation: tr-sube .45s var(--tr-ease) backwards; }
+
+/* Escritura glitch (escritura.js): las letras que faltan ocupan su lugar pero no se ven;
+   las últimas escritas tiemblan con un corte RGB y vuelven a su lugar. */
+.esc-oculto { visibility: hidden; }
+/* Las letras reales (invisibles) fijan el ancho; encima se dibujan símbolos que parpadean con corte RGB. */
+.esc-glitch { visibility: hidden; position: relative; }
+.esc-glitch::after {
+  content: attr(data-g);
+  visibility: visible;
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: pre;
+  animation: esc-glitch .12s steps(2, end) infinite;
+}
+@keyframes esc-glitch {
+  0%   { text-shadow: -3px 0 #00f0ff, 3px 0 #ff3dbf; translate: -1px 0; clip-path: inset(0 0 40% 0); }
+  50%  { text-shadow: 3px 0 #00f0ff, -3px 0 #ff3dbf; translate: 2px -1px; clip-path: inset(30% 0 0 0); }
+  100% { text-shadow: -2px 0 #00f0ff, 2px 0 #ff3dbf; translate: 0 1px; clip-path: inset(0); }
+}
+@media (prefers-reduced-motion: reduce) { .esc-glitch::after { animation: none; } }
+
+/* Dentro de un núcleo: los títulos no se desplazan, solo se funden (no se mueven ni un píxel). */
+html.tr-interno:not(.tr-tutorial).tr-play :is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :is(h1,h2,[class*="titulo"]) {
+  animation: tr-fundido .3s ease backwards;
+}
+@keyframes tr-fundido { from { opacity: 0; } }
+
+/* Tutorial: todo entra solo con el flotado común (se anulan las animaciones propias de cada tipo de elemento). */
+html.tr-tutorial.tr-play .diseno > * {
+  animation: tr-sube var(--tr-dur) var(--tr-ease) backwards;
+  animation-delay: calc(var(--tr-ini) + min(var(--i, 0) * var(--tr-paso), 520ms));
+}
+html.tr-tutorial.tr-play .stage > :not(.diseno) { animation: tr-fondo-suave .35s ease backwards; }
+
+/* ===================== ESCALONADO (índice de cada hijo) ===================== */
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(1){--i:1}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(2){--i:2}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(3){--i:3}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(4){--i:4}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(5){--i:5}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(6){--i:6}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(7){--i:7}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(8){--i:8}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(9){--i:9}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(10){--i:10}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(11){--i:11}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(12){--i:12}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(13){--i:13}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(14){--i:14}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(15){--i:15}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(16){--i:16}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(17){--i:17}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(18){--i:18}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(19){--i:19}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(20){--i:20}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(21){--i:21}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(22){--i:22}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(23){--i:23}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(24){--i:24}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(25){--i:25}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(26){--i:26}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(27){--i:27}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(28){--i:28}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(29){--i:29}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(30){--i:30}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(31){--i:31}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(32){--i:32}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(33){--i:33}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(34){--i:34}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(35){--i:35}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(36){--i:36}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(37){--i:37}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(38){--i:38}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(39){--i:39}
+:is(.diseno,.n2-nav,.fuentes,.recorrido,.p2-nodos,.c2-nodos,.pestanas,.c1-marcas,.n2-grupo,.q-bloque,.q-opciones,.gr-filas,.pianito,.motor) > :nth-child(40){--i:40}
+
+@media (prefers-reduced-motion: reduce) {
+  .tr-play *, .tr-play *::before, .tr-play *::after { animation: none !important; }
+}

@@ -1,0 +1,220 @@
+/* Núcleo 2 (nuevo diseño): navegación lateral + pantallas "¿Cómo interactúa?", "Aplicaciones de Magenta", Piano Genie y AI Duet */
+
+.n2-titulo {
+  position: absolute;
+  left: 711px;
+  top: 91px;
+  transform: translateX(-50%);
+  font: italic 700 64px/1.5 'Chakra Petch', sans-serif;
+  letter-spacing: -1.472px;
+  text-transform: uppercase;
+  color: var(--azul);
+  text-shadow: 0 4px 25px rgba(0, 0, 0, .5);
+  white-space: nowrap;
+}
+.n2-bajada {
+  position: absolute;
+  left: 114px;
+  top: 208px;
+  width: 1211px;
+  text-align: center;
+  font: 600 24px/1.37 'Orbitron', sans-serif;
+  letter-spacing: -.24px;
+  color: #fff;
+}
+.n2-grupo { position: absolute; inset: 0; translate: 0 var(--dy, 0px); }
+
+/* ---------- Navegación lateral con línea de tiempo ---------- */
+.n2-nav { position: absolute; left: 118px; }
+.n2-nav__linea { position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: rgba(79, 123, 255, .9); }
+.n2-nav__item {
+  position: absolute;
+  left: 25px;
+  width: 188px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: rgba(255, 61, 191, .18);
+  border: 1px solid rgba(255, 61, 191, .5);
+  border-radius: 10px;
+  font: 700 16px/normal 'Orbitron', sans-serif;
+  letter-spacing: .96px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.n2-nav__item--sig { font: 700 14px/normal 'JetBrains Mono', monospace; letter-spacing: .84px; }
+.n2-nav__item.on {
+  background: rgba(79, 123, 255, .33);
+  border-color: var(--azul);
+  box-shadow: 0 0 20px var(--azul);
+}
+.n2-nav__item:hover:not(.on) { background: rgba(255, 61, 191, .28); }
+.n2-nav__punto {
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ff3dbf;
+  background: rgba(6, 4, 15, .9);
+  box-shadow: 0 0 10px rgba(255, 61, 191, .6);
+}
+.n2-nav__punto::after { content: ""; position: absolute; inset: 2px; border-radius: 50%; background: #ff3dbf; }
+.n2-nav__punto.on { border-color: #7f9cff; box-shadow: 0 0 14px var(--azul); }
+.n2-nav__punto.on::after { background: #7f9cff; }
+.n2-nav__cx { position: absolute; left: 17px; width: 8px; height: 2px; background: #ff3dbf; }
+.n2-nav__cx.on { background: var(--azul); }
+
+/* ---------- Tarjetas TOCAR / TRANSFORMAR / GENERAR ---------- */
+.n2-card {
+  position: absolute;
+  top: 477px;
+  width: 241px;
+  height: 252px;
+  border: 1px solid var(--azul);
+  background: rgba(0, 0, 0, .15);
+}
+.n2-card--3 { background: rgba(0, 0, 0, .12); }
+.n2-card.on { border-width: 2px; background: rgba(87, 4, 195, .5); box-shadow: 0 0 50px rgba(79, 123, 255, .4); }
+.n2-card--2.on, .n2-card--3.on { border-width: 1px; box-shadow: 0 4px 50px rgba(79, 123, 255, .4); }
+.n2-card.apagada { border-width: 2px; background: rgba(67, 4, 255, .12); opacity: .4; }
+.n2-etq {
+  position: absolute;
+  top: 502px;
+  transform: translateX(-50%);
+  font: 600 13px/1.4 'Orbitron', sans-serif;
+  color: #ff3dbf;
+  white-space: nowrap;
+}
+.n2-pie {
+  position: absolute;
+  top: 687px;
+  transform: translateX(-50%);
+  font: 600 13px/1.4 'Orbitron', sans-serif;
+  color: #fff;
+  white-space: nowrap;
+}
+.n2-piano { position: absolute; left: 454px; top: 568px; width: 185px; height: 71px; }
+.n2-piano i { position: absolute; display: block; top: 0; bottom: 0; background: #fff; }
+.n2-piano i.az { background: var(--azul); }
+.n2-piano i.n { background: #06040f; bottom: 42.25%; }
+.n2-notas { position: absolute; left: 1096px; top: 565px; width: 195px; height: 87px; }
+.n2-notas i { position: absolute; display: block; border-radius: 2px; opacity: .1; background: var(--azul); }
+.n2-notas--cian i { background: #60f2ff; }
+
+/* ---------- Aplicaciones de Magenta ---------- */
+.n2-caja {
+  position: absolute;
+  left: 404px;
+  top: 304px;
+  width: 911px;
+  height: 364px;
+  background: rgba(79, 123, 255, .08);
+  border: 1px solid var(--azul);
+}
+.n2-panel {
+  position: absolute;
+  top: 327px;
+  height: 318px;
+  background: rgba(106, 0, 255, .2);
+  border: 1px solid #a166f4;
+  box-shadow: 0 0 20px var(--violeta);
+}
+.n2-nombre {
+  position: absolute;
+  top: 377px;
+  transform: translateX(-50%);
+  font: 700 48px/1.1 'Orbitron', sans-serif;
+  letter-spacing: .48px;
+  color: #fff;
+  white-space: nowrap;
+}
+.n2-nombre--grande { font-size: 64px; letter-spacing: .64px; }
+.n2-desc {
+  position: absolute;
+  left: 444px;
+  font: 700 23px/1.35 'Orbitron', sans-serif;
+  color: var(--lila-claro);
+}
+.n2-b { position: absolute; display: block; }
+.n2-n { position: absolute; display: block; border-radius: 10px; }
+.n2-letra {
+  position: absolute;
+  top: 347px;
+  transform: translateX(-50%);
+  font: 700 20px/1.1 'Orbitron', sans-serif;
+  letter-spacing: .2px;
+}
+.n2-rot { position: absolute; display: flex; align-items: center; justify-content: center; width: 98.989px; height: 120.558px; }
+.n2-rot > div { position: relative; flex: none; width: 107.027px; height: 55.498px; }
+.n2-rot img { position: absolute; display: block; max-width: none; left: -18.98%; right: -18.9%; top: -36.94%; bottom: -36.94%; width: 137.88%; height: 173.88%; }
+.n2-temp-b, .n2-temp-c { position: absolute; display: block; }
+.n2-temp-b { background: #ff3dbf; box-shadow: 0 0 5px #ff3dbf; }
+.n2-temp-c { background: #26c3d1; box-shadow: 0 0 5px #26c3d1; }
+.n2-temp-t {
+  position: absolute;
+  transform: translateX(-50%);
+  font: 700 15px/1.1 'Orbitron', sans-serif;
+  letter-spacing: .15px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* ---------- Piano Genie ---------- */
+.gi-titulo {
+  position: absolute;
+  left: 227px;
+  top: 89px;
+  width: 986px;
+  text-align: center;
+  font: italic 700 64px/1.1 'Chakra Petch', sans-serif;
+  letter-spacing: .64px;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+.gi-t {
+  position: absolute;
+  font: 700 23px/1.35 'Orbitron', sans-serif;
+  color: var(--lila-claro);
+}
+.gi-t b { font-weight: 700; color: #ff3dbf; }
+.gi-botones { position: absolute; left: 498px; top: 316px; width: 441px; height: 452px; }
+.gi-botones__caja { position: absolute; left: 15px; top: 0; width: 415px; height: 209px; border: 3px solid #ff3dbf; border-radius: 40px; }
+.gi-botones .b { position: absolute; display: block; }
+.gi-botones .b img { position: absolute; display: block; max-width: none; left: -17.5%; top: -17.5%; width: 135%; height: 135%; }
+.gi-teclas { position: absolute; left: 24px; top: 279px; width: 410px; height: 170px; overflow: hidden; }
+.gi-teclas i { position: absolute; display: block; top: 0; height: 170px; background: #fff; }
+.gi-teclas i.n { background: #06040f; height: 95px; width: 26px; }
+
+/* ---------- AI Duet ---------- */
+.ad-piano { position: absolute; left: 359px; top: 304px; width: 722px; height: 415px; }
+.ad-piano__caja { position: absolute; left: 0; top: 112px; width: 722px; height: 303px; border: 3px solid var(--azul); border-radius: 20px; }
+.ad-piano i { position: absolute; display: block; top: 165px; width: 67px; height: 197px; background: #fff; }
+.ad-piano i.n { top: 165px; width: 40px; height: 114px; background: #06040f; }
+.ad-turno {
+  position: absolute;
+  top: 0;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-radius: 10px;
+  font: 700 18px/1.35 'Orbitron', sans-serif;
+  color: #fff;
+  white-space: nowrap;
+}
+.ad-turno--tu { left: 178px; width: 116px; background: rgba(79, 123, 255, .15); border-color: rgba(79, 123, 255, .5); }
+.ad-turno--ia { left: 397px; width: 163px; background: rgba(255, 61, 191, .15); border-color: rgba(255, 61, 191, .5); }
+
+/* Los botones laterales quedan por encima del contenido y el contenido no intercepta clics */
+.n2-nav { z-index: 10; }
+.n2-nav__item { cursor: pointer; }
+.n2-grupo, .n2-caja, .n2-panel { pointer-events: none; }
+
+/* Cambio de tab sin recargar: solo cambia el color de la tab y el dibujo; nada se re-anima ni parpadea */
+html.sin-anim .diseno, html.sin-anim .diseno * { animation: none !important; }
+.n2-nav__item, .n2-nav__cx, .n2-nav__punto, .n2-nav__punto::after, .n2-card { transition: background-color .18s, border-color .18s, box-shadow .18s, opacity .18s; }

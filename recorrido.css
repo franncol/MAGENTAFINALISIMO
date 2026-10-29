@@ -1,0 +1,363 @@
+/* Pantallas del recorrido "Cómo funciona la IA" (frames de 1440x1024, escalados por base.css) */
+
+:root {
+  --lila-titulo: #d49dde;
+  --azul: #4f7bff;
+  --lila: #b89bff;
+}
+
+.halo {
+  position: absolute;
+  left: -180px;
+  top: 601px;
+  width: 1800px;
+  height: 1000px;
+  pointer-events: none;
+}
+
+.fondo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.titulo {
+  position: absolute;
+  top: 120px;
+  font: 700 64px/normal 'Chakra Petch', sans-serif;
+  letter-spacing: -2.56px;
+  color: var(--lila-titulo);
+  text-shadow: 0 4px 25px rgba(0, 0, 0, .65);
+  white-space: nowrap;
+}
+.titulo--centro { left: 0; width: 1440px; text-align: center; }
+
+.bajada {
+  position: absolute;
+  left: 103px;
+  width: 1234px;
+  text-align: center;
+  font: 600 30px/1.5 'Orbitron', sans-serif;
+  letter-spacing: -.69px;
+  color: var(--texto);
+}
+
+/* Píldora de control (abajo a la izquierda en todo el recorrido) */
+.pildora-ctl {
+  position: absolute;
+  left: 100px;
+  top: 880px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 26px 8px 8px;
+  background: rgba(212, 157, 222, .12);
+  border: 2px solid var(--lila-titulo);
+  border-radius: 999px;
+  box-shadow: 0 0 24px rgba(212, 157, 222, .45);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+.pildora-ctl:hover { background: rgba(212, 157, 222, .22); }
+.pildora-ctl__icono {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background: var(--lila-titulo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pildora-ctl__icono img { width: 26px; height: 26px; }
+.pildora-ctl__texto {
+  font: 700 16px/1.2 'Orbitron', sans-serif;
+  letter-spacing: .96px;
+  color: var(--texto);
+  white-space: nowrap;
+}
+.pildora-ctl--grande {
+  left: 91px;
+  top: 872px;
+  gap: 21.6px;
+  padding: 10.8px 35.1px 10.8px 10.8px;
+  border-width: 2.7px;
+  box-shadow: 0 0 32.4px rgba(212, 157, 222, .45);
+}
+.pildora-ctl--grande .pildora-ctl__icono { width: 59.4px; height: 59.4px; border-radius: 30px; }
+.pildora-ctl--grande .pildora-ctl__icono img { width: 35.1px; height: 35.1px; }
+.pildora-ctl--grande .pildora-ctl__texto { font-size: 21.6px; letter-spacing: 1.296px; }
+
+/* Pestañas MIDI / AUDIO / TEXTO */
+.pestanas {
+  position: absolute;
+  left: 106px;
+  top: 271px;
+  display: flex;
+  gap: 12px;
+}
+.pestana {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1px solid var(--rosa);
+  font: 700 18px/normal 'Orbitron', sans-serif;
+  letter-spacing: 1.08px;
+  color: var(--texto-tenue);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pestana--activa {
+  padding: 11px 19px;
+  border-width: 2px;
+  background: rgba(255, 61, 191, .29);
+  box-shadow: 0 0 20px rgba(255, 61, 191, .45);
+  color: var(--texto);
+}
+.pestana__marca { font: 400 14px 'JetBrains Mono', monospace; color: var(--rosa); }
+
+/* Tarjeta del canal (MIDI / AUDIO / TEXTO) */
+.canal {
+  position: absolute;
+  left: 100px;
+  top: 380px;
+  width: 377px;
+  height: 394px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border: 1.5px solid var(--texto-tenue);
+  overflow: hidden;
+}
+.canal--midi { border: 4px solid var(--azul); }
+.canal__icono { width: 96px; height: 96px; flex-shrink: 0; }
+.canal__nombre {
+  font: 900 34px/normal 'Orbitron', sans-serif;
+  letter-spacing: 1.36px;
+  white-space: nowrap;
+}
+.canal__desc {
+  font: 400 22px/1.35 'Space Grotesk', sans-serif;
+  color: var(--texto);
+  white-space: nowrap;
+}
+.canal__grafico { position: relative; height: 70px; flex-shrink: 0; width: 100%; overflow: hidden; }
+.canal__grafico i { position: absolute; display: block; border-radius: 3px; }
+
+.canal--midi .canal__nombre { color: var(--azul); }
+.canal--midi .canal__grafico i { height: 16px; background: var(--azul); }
+.canal--audio .canal__nombre { color: var(--rosa); }
+.canal--audio .canal__grafico i { width: 10px; background: var(--rosa); }
+.canal--texto .canal__nombre { color: var(--lila); }
+.canal__palabra {
+  position: absolute;
+  left: 0;
+  top: 18px;
+  font: 700 24px 'JetBrains Mono', monospace;
+  color: var(--lila);
+  white-space: nowrap;
+}
+
+.abs { position: absolute; }
+.abs img { display: block; }
+.fill { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Pantalla 1: fuentes */
+.fuentes {
+  position: absolute;
+  left: 107px;
+  top: 410px;
+  display: flex;
+  flex-direction: column;
+  gap: 25.92px;
+}
+.fuente { display: flex; align-items: center; gap: 23.04px; }
+.fuente img { width: 92.16px; height: 92.16px; }
+.fuente span {
+  font: 700 25.92px/normal 'Orbitron', sans-serif;
+  letter-spacing: 1.0368px;
+  color: var(--texto);
+}
+
+/* Pantalla 4: prompt */
+.prompt-txt {
+  position: absolute;
+  font: 400 30px/normal 'Space Mono', monospace;
+  color: var(--texto);
+  white-space: nowrap;
+}
+.prompt-txt--clave { font-weight: 700; color: #d9c4ff; }
+.prompt-etq {
+  position: absolute;
+  font: 700 11px/normal 'Orbitron', sans-serif;
+  color: #a98cf5;
+  text-align: center;
+  white-space: nowrap;
+}
+.prompt-chip, .prompt-tick { position: absolute; }
+.prompt-chip img { position: absolute; display: block; }
+.prompt-tick img { position: absolute; display: block; top: 0; left: -.75px; width: calc(100% + 1.5px); height: 100%; }
+
+/* Pantalla 5: motor de predicción */
+.motor {
+  position: absolute;
+  left: 36px;
+  top: 420px;
+  width: 1368px;
+  height: 361px;
+}
+.motor img { position: absolute; display: block; max-width: none; }
+.motor__barra {
+  position: absolute;
+  top: 153.5px;
+  width: 150px;
+  height: 4px;
+  background: var(--lila);
+}
+.motor__card {
+  position: absolute;
+  left: 979px;
+  top: 11.5px;
+  width: 389px;
+  height: 338px;
+  background: rgba(255, 61, 191, .15);
+  border: 4px solid var(--rosa);
+  box-shadow: 0 0 20px var(--rosa);
+}
+.motor__t {
+  position: absolute;
+  font: 400 20px/1.5 'Russo One', sans-serif;
+  letter-spacing: -.46px;
+  color: #fff;
+  white-space: nowrap;
+}
+.motor__pista {
+  position: absolute;
+  width: 170px;
+  height: 14px;
+  border-radius: 7px;
+  background: #f2f4ff;
+  overflow: hidden;
+}
+.motor__pista i { display: block; height: 14px; border-radius: 7px; background: #fd5af2; }
+
+/* Pantalla 6: progreso */
+.encabezado {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  top: 84px;
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font: 700 18px/normal 'Orbitron', sans-serif;
+  letter-spacing: 1.08px;
+  color: var(--texto);
+}
+.titulo-progreso {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  top: 144px;
+  text-align: center;
+  font: 900 50px/1.1 'Orbitron', sans-serif;
+  letter-spacing: .5px;
+  color: var(--lila-titulo);
+  text-shadow: 0 4px 25px rgba(0, 0, 0, .5);
+  white-space: nowrap;
+}
+.recorrido {
+  position: absolute;
+  left: 720.5px;
+  top: 348px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.nodo { display: flex; flex-direction: column; align-items: center; gap: 16.8px; }
+.nodo__circulo {
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  border: 2.4px dashed var(--texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 900 67.2px/normal 'Orbitron', sans-serif;
+  color: var(--texto);
+}
+.nodo__nombre {
+  font: 700 21.6px/normal 'Orbitron', sans-serif;
+  letter-spacing: .864px;
+  color: var(--texto);
+  white-space: nowrap;
+}
+.nodo__cable {
+  font: 400 16.8px/1.2 'JetBrains Mono', monospace;
+  letter-spacing: 2.016px;
+  color: var(--texto);
+  white-space: nowrap;
+}
+.nodo--hecho .nodo__circulo { background: var(--lila-titulo); border: 0; color: #06040f; }
+.nodo--hecho .nodo__nombre, .nodo--hecho .nodo__cable { color: var(--lila-titulo); }
+.union { padding-bottom: 50px; }
+.union i { display: block; width: 150px; height: 4px; background: var(--texto); }
+
+.pildora-cable {
+  position: absolute;
+  left: 720px;
+  top: 859px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 34px 10px 10px;
+  background: rgba(79, 123, 255, .5);
+  border: 2.5px solid var(--azul);
+  border-radius: 999px;
+  box-shadow: 0 0 36px rgba(79, 123, 255, .75);
+  text-decoration: none;
+  cursor: pointer;
+}
+.pildora-cable__icono {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background: var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pildora-cable__icono img { width: 32px; height: 32px; }
+.pildora-cable__texto {
+  font: 700 18px/1.2 'Orbitron', sans-serif;
+  letter-spacing: 1.08px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.pestana { transition: background-color .18s, border-color .18s, box-shadow .18s, color .18s; }
+html.sin-anim .diseno, html.sin-anim .diseno * { animation: none !important; }
+
+.pestana { transition: background-color .18s, border-color .18s, box-shadow .18s, color .18s; }
+html.sin-anim .diseno, html.sin-anim .diseno * { animation: none !important; }
+
+/* Pestañas: la que se está viendo se prende de color y lleva una flechita adentro (solo la activa; las demás quedan compactas) */
+.pestana { position: relative; }
+.pestana--activa {
+  background: rgba(255, 61, 191, .42);
+  box-shadow: 0 0 26px rgba(255, 61, 191, .7);
+}
+.pestana--activa::before {
+  content: "▶";
+  font: 400 14px 'JetBrains Mono', monospace;
+  color: var(--rosa);
+  text-shadow: 0 0 10px var(--rosa);
+}

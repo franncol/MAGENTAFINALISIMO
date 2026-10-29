@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="transicion.js"></script>
+  <title>Magenta llevado a la práctica | Google Magenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;600;700;900&family=Russo+One&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="n3.css">
+  <link rel="stylesheet" href="transicion.css">
+</head>
+<body>
+  <div class="stage" id="stage">
+    <img class="mp-bg" src="assets/n3/fondo.png" alt="">
+    <main class="diseno">
+      <h1 class="mp-titulo">Magenta llevado a la práctica</h1>
+      <p class="mp-sub">Chain Tripping (2019) — Nominado al Grammy 2020</p>
+      <p class="mp-bajada">Álbum creado con Google Magenta a partir de 80 canciones previas desglosadas en MIDI por instrumento, con la utilización de las siguientes herramientas:</p>
+
+      <section class="mp-card mp-card--cian" id="c1" style="left:317px" role="button" tabindex="0">
+        <p class="mp-card__titulo mp-front" style="left:129px;color:#83f5ff">MusicVAE</p>
+        <p class="mp-card__texto mp-front">Composición de melodías y acordes mediante interpolación.</p>
+        <div class="mp-front" style="position:absolute;left:13px;top:91px;width:338px;height:317px;overflow:hidden">
+          <img src="assets/n3/musicvae.png" alt="" style="left:-23.48%;top:-60.2%;width:145.62%;height:219.3%">
+        </div>
+        <p class="mp-back mp-back__titulo" style="left:129px;top:30px;transform:translateX(-50%);color:#83f5ff">MusicVAE</p>
+        <div class="mp-back mp-back__texto" style="left:18px;right:18px;top:98px;bottom:55px">
+          <p>Composición de melodías y acordes mediante interpolación.</p>
+          <p>Usaban distintos riffs presentes en canciones propias, y la IA se encargaba de generar compases intermedios para unirlos.</p>
+        </div>
+      </section>
+      <section class="mp-card mp-card--violeta" id="c2" style="left:755px" role="button" tabindex="0">
+        <p class="mp-card__titulo mp-front" style="left:109.5px;color:#da7dff">NSynth</p>
+        <p class="mp-card__texto mp-front">Síntesis de timbres híbridos (acústico + analógico).</p>
+        <img class="mp-front" src="assets/n3/sonido.svg" alt="" style="left:38px;top:97px;width:288px;height:288px">
+        <p class="mp-back mp-back__titulo" style="left:109.5px;top:30px;transform:translateX(-50%);color:#da7dff">NSynth</p>
+        <div class="mp-back mp-back__texto" style="left:13px;right:12px;top:98px;bottom:55px">
+          <p>Utilizando grabaciones aisladas de instrumentos y voces, lo unieron con la IA para que pueda generar nuevos sonidos, combinando características de instrumentos reales con sintetizadores modulares</p>
+        </div>
+      </section>
+      <a class="pildora-paso" href="magenta-practica-2.html" style="left:110px;top:927px;width:auto;--p-bg:rgba(255,61,191,.16);--p-c:#ff3dbf;--p-g:rgba(255,61,191,.45)">
+        <span class="pildora-paso__icono"><img src="assets/n3/icono-pad.svg" alt=""></span>
+        <span class="pildora-paso__texto">REVELA CON LOS PADS 1 y 2</span>
+      </a>
+    </main>
+  </div>
+  <script src="stage.js"></script>
+  <script>
+    // Cada ícono se revela al tocarlo (o con los pads 1 y 2) y muestra su texto; otro toque lo vuelve a cerrar.
+    const tarjetas = [document.getElementById('c1'), document.getElementById('c2')];
+    // Da vuelta la card: gira hasta quedar de canto, cambia de cara y termina de girar.
+    const gira = (angulo) => `perspective(1100px) rotateY(${angulo}deg)`;
+    const alternar = (t) => {
+      if (t.girando) return;
+      if (!t.animate) { t.classList.toggle('revelada'); return; }
+      t.girando = true;
+      t.animate([{ transform: gira(0) }, { transform: gira(90) }], { duration: 200, easing: 'ease-in' }).onfinish = () => {
+        t.classList.toggle('revelada');
+        t.animate([{ transform: gira(-90) }, { transform: gira(0) }], { duration: 260, easing: 'cubic-bezier(.2,.9,.3,1.1)' }).onfinish = () => { t.girando = false; };
+      };
+    };
+    tarjetas.forEach((t) => {
+      t.addEventListener('click', () => alternar(t));
+      t.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') alternar(t); });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '1') alternar(tarjetas[0]);
+      if (e.key === '2') alternar(tarjetas[1]);
+    });
+  </script>
+  <script src="consola.js"></script>
+</body>
+</html>
